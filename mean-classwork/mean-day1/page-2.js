@@ -22,11 +22,18 @@ function function1() {
 
   function add()
   {
-      console.log(arguments)
-      let result = 0
-    result = result + arguments;
-      console.log(`add = ${result}`)
+   let result = 0
+      //console.log(arguments);
+     for (let index = 0; index < arguments.length; index++)
+      {
+       const element = parseFloat(arguments[index] ) 
+       
+          result += element 
+     }
+      
+     console.log(`result = ${result}`)
+      
   }
 
-  add(10,230);
+  add(10,1,1,1,1,1,1,1,11,1);
   add(12,12,12);

@@ -11,7 +11,7 @@ function fun1()
 }
 
 
-//fun1()
+fun1()
 
 function fun2()
 {
@@ -25,7 +25,7 @@ function fun2()
 console.log(squares)
 
 }    
-//fun2()
+fun2()
 
 
 function fun3()

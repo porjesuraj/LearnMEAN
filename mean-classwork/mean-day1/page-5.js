@@ -79,16 +79,4 @@ function notafford(car)
  
 function6()
   
-  function function7() {
-    const persons = [
-      { name: "person1", email: "person1@test.com", age: 14 },
-      { name: "person2", email: "person2@test.com", age: 45 },
-      { name: "person3", email: "person3@test.com", age: 50 },
-      { name: "person4", email: "person4@test.com", age: 16 }
-    ]
-  
-    // get name and age of persons who can vote
-  
-    // get name and email of persons who can not vote
-  }
-  
+ 

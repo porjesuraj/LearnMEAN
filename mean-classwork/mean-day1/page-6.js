@@ -3,11 +3,11 @@ function fun1()
     console.log(`inside a fun1`)
 }
 
-//fun1()
+fun1()
 
 const myfun1 = fun1
 
-//myfun1()
+myfun1()
 function fun2()
 {
     console.log(`inside a fun1`)
@@ -15,7 +15,7 @@ function fun2()
 
 const myfun2 = fun2
 
-//myfun2()
+myfun2()
 
 
 //unnamed/anonymous function
@@ -45,19 +45,4 @@ const square =
     console.log(number * number) 
 }
 
-//square(10)
-
-const cube = function(number)
-{
-    console.log(`cube is ${Math.pow(number,3)}`)
-}
-
-//cube(3)
-//cube(100)
-
-//closure
-// closure
-//( () => {
-//    console.log("inside anonymous function")
-//  })()
-
+square(10)

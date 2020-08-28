@@ -11,7 +11,7 @@ function function1()
     }
 }
 
-//function1()
+function1()
 
 function function2() 
 { 
@@ -25,7 +25,7 @@ function function2()
   console.log(`${squares}`) 
 }
 
-//function2()
+function2()
 
 function square(number)
 {
@@ -45,7 +45,7 @@ function function3()
   console.log(squares) 
 }
 
-//function3()
+function3()
 
 
 function function4() 
@@ -57,7 +57,7 @@ function function4()
   console.log(`${squares}`) 
 }
 
-//function4()
+function4()
 function cube(number)
 {
    // return number*number*number
@@ -73,7 +73,7 @@ function function5()
   console.log(cubes) 
 }
 
-//function5()
+function5()
 function celsius(Faren)
 {
     return  (5/9)*(Faren - 32)
@@ -85,7 +85,7 @@ function fun6()
     console.log(temp)
     console.log(cels)
 }
-//fun6()
+fun6()
 function carFeature(car) {
     //construct a new object with model and price
      return {model : car["model"], price: car["price"]}    
@@ -103,7 +103,7 @@ function fun7() {
     console.log(newCars)
     
 }
-//fun7()
+fun7()
 
 function newPersons(person) {
     return {name: person['name'], age : person['age'] }

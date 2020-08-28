@@ -74,7 +74,7 @@ function2()
       { name: "person2", email: "person2@test.com", age: 45 },
       { name: "person3", email: "person3@test.com", age: 50 },
       { name: "person4", email: "person4@test.com", age: 16 }
-    ]c
+    ]
   
     // get name and age of persons who can vote
     const checkVoter = persons.filter( (p) => { return p['age'] > 18 })

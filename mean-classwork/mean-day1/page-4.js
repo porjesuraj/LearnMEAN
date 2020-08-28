@@ -14,7 +14,7 @@ function fun1()
     }
 
 }
-//fun1()
+fun1()
 
 
 function fun2()
@@ -34,7 +34,8 @@ function fun2()
     console.log(numbers)
      console.log(even)
 }
-//fun2()
+fun2()
+
 function isEven(number)
 {
     return number % 2 == 0
@@ -61,7 +62,8 @@ function fun3()
      console.log(even)
 }
 
-//fun3()
+fun3()
+
 function isOdd(number)
 {
     return number % 2 != 0
@@ -81,7 +83,7 @@ function fun4()
    console.log(odds)
 }
 
-//fun4()
+fun4()
 
 function price(cars)
 {
@@ -101,7 +103,9 @@ function fun5()
    console.log(myCars)
 }  
 
-//fun5()
+fun5()
+
+
 function canVote(person)
 {
     return person['age'] > 18
@@ -124,5 +128,5 @@ function fun6() {
     console.log(voter)
    // console.log(`${voter}`)
 }
-//fun6()
+  fun6()
 
