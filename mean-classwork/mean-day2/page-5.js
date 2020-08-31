@@ -26,9 +26,9 @@ const m2 = new Mobile('sphone','apple',20000)
 const m3 = new Mobile('zphone','apple',60000)
 
 console.log('' + m1)
+console.log(m1)
 console.log('' + m2)
 console.log('' + m3)
-
 m1.canAfford()
 m2.canAfford()
 m3.canAfford()

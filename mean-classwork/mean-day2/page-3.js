@@ -3,14 +3,14 @@
 function fun1()
 {
     //const p1 = {name : 'person1'}
-// reference p1 will oint to an object
+// reference p1 will point to an object
     const p1 = new Object()
     console.log(p1)
    // console.log(p1)
    // console.log(` ${p1},type of ${typeof(p1)}`)
 }
 
-//fun1()
+fun1()
 
 function fun2()
 {      //create a new object
@@ -29,7 +29,7 @@ function fun2()
 
     console.log(m1)
 }
-//fun2()
+fun2()
 
 function fun3()
 {

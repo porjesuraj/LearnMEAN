@@ -49,6 +49,7 @@ function fun3()
 
 }
 //fun3()
+//to get individual element using subscript operator ([])
 function fun4()
 {
 
@@ -59,7 +60,7 @@ function fun4()
 }
 
 //fun4( )
-
+//accessing object using dot(.) operator
 function fun5()
 {
 
@@ -85,7 +86,7 @@ function fun6()
 
 function canVOtePerson()
 {
-    console.log('inside cvp function ')
+    
     console.log(this)
     if (this['age'] >= 18)
     {
@@ -111,7 +112,7 @@ function fun7()
     const myVote = canVOtePerson
    myVote(p1)
 
-//POP
+//OOP
  //console.log(`name = ${p1.name}`)
   p1.canVOte = canVOtePerson
 
