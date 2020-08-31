@@ -6,7 +6,7 @@
 5. it is a loosely typed language i.e variable type can be changed
    - there is no type checking 
    - datatypes are inferred
-   - datatypes are dynamically assigned \
+   - datatypes are dynamically assigned 
 6. it does not support pointers   
 
 # Browser components 
@@ -437,6 +437,11 @@
         - missing argument will be treated as undefined
       - more number of param than expected
         - * extra parameter will be discarded
+      - every function in JS recieves two hidden parameters
+        - **arguments** : used to get all the arguments in an array
+        - **this** : used to point the current object  
+          - **this points to window in a function inside javascript in html**
+          - **this point to Object if called outside the html**
       - e.g 
       ```javascript
        function add(number1, number2)
@@ -517,7 +522,7 @@
 
  9. **html + JS**
 
-## OOP JS
+
 
 ## JS as Functional programming language
  - in JS, function is considered as first class citizen
@@ -525,3 +530,104 @@
    - a variable can be created for a function (**function alias**)
     - a function can be considered as a variable  
    - one function can be considered as a **return value of another function**
+
+
+## OOP JS 
+
+- JS is object oriented programming language
+-  **alan key** coined OOP terms 
+- JS  created by **brendan eich**
+- object can be created by four ways 
+ 1. using **Object**
+ 2. using **constructor functions**
+ 3. using **JSON** 
+ 4. using keyword **class**
+
+## object
+  - similar to instance of a class in other language
+  - collection of key-value pairs
+  - kay also known as property, so also property -value pairs
+  -e.g
+  ```js
+       const person  = {
+        name: 'person1',
+        age : 40
+    }
+
+     // properties => name,age
+   // values => person1,40 
+  ```
+- to access value of a property
+ - use subscript ([] syntax)
+ - used when a property is having special character like space
+ - e.g. 
+ ```js
+
+ const p1 = {name: 'perosn1', email: 'perosn1@test.com', age: 40}
+    console.log(`name : ${p1['name']}`)
+    console.log(`email : ${p1['email']}`)
+    console.log(`age : ${p1['age']}`)
+}
+
+ ```
+ ```js
+
+const person = { 
+  'first name' : 'steve',
+  'last name' : 'jobs
+ }
+
+
+ ```
+- use dor (.) syntax
+ - e.g 
+   ```js
+       
+       const p1 = {name: 'perosn1', email: 'perosn1@test.com', age: 40}
+        console.log(`name : ${p1.name}`)
+        console.log(`email : ${p1.email}`)
+        console.log(`age : ${p1.age}`)
+
+   ```
+
+3. ***JSON** 
+- javascript Object Notation
+- way to create an object
+- JSOn supports
+- object
+ - collection of key-value pairs
+ - e.g.
+ ```js
+ function fun1()
+{
+    const person  = {
+        name: 'person1',
+        age : 40
+    }
+
+    console.log(person)
+
+
+}   
+ ```
+
+- **array**
+  - collection of objects 
+  -e.g 
+  ``` js
+       function fun2()
+    {
+    const persons = [
+        {name: 'person1',age : 40 },
+        {name: 'person1',age : 40 },
+        {name: 'person1',age : 40 }
+         ]
+   console.log (` person = ${persons} type - ${typeof(persons)}`)
+     }
+
+  ```
+
+### creating object using **O**bject
+
+- Object is a root function provided by JS
+- everything in JS is a Object

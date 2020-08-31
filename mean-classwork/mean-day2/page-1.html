@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+ <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       
+
+
+
+        <button onclick="alerthere()"> click me</button>
+        <button onclick="fun2()"> click fun2 me</button>
+        
+        <script>
+            function alerthere()
+            {
+                window.alert('hello');
+                this.alert('yoyoy');
+            }
+
+            function Person(name,email,age)
+{
+    this.name = name
+    this.email = email
+    this.age = age
+}
+            function fun2()
+            {
+              
+
+const p1 = new Person('person1','test@gmail.com',40)
+console.log(p1)
+console.log(p1 + '')
+
+
+const p2 = new Person('perosn2','test@yahoo.com',45)
+console.log(p2)
+console.log(`${p2}`)
+            }
+        </script>
+    </body>
+</html>
+
+
+
