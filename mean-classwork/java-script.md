@@ -631,3 +631,17 @@ const person = {
 
 - Object is a root function provided by JS
 - everything in JS is a Object
+
+
+### node
+
+### module
+
+- any js file having extension .js 
+- the NodeJs embeds an object named module in every mudule to present the current module
+- the module object has following properties
+  - id: the identification of the module
+  - path: the file which is representing this module
+  - exports:
+    - contains the list of function/variable/constant which can be exported from the current module
+     
