@@ -645,3 +645,22 @@ const person = {
   - exports:
     - contains the list of function/variable/constant which can be exported from the current module
      
+
+#### HTTP Request (request) by client
+1. **HTTP Method - Operation**
+ - GET    -  get data
+ - POST   - insert data 
+ - PUT    - update the data
+ - DELETE - Delete data    
+
+2. **path** = URL : of the page 
+
+### HTTP Request , server side what is done
+1. **HTTP Method - Operation**
+ - GET     - select * from  ...
+ - POST    - insert into ...
+ - PUT     - update ...
+ - DELETE  - delete ...
+
+
+
