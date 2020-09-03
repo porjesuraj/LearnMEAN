@@ -92,7 +92,46 @@ app.post('/customer',(request,response) =>
 
 });
 
+app.put('/customer',(request,response) => 
+{
+       
+    const connection = mysql.createConnection({
+        host : 'localhost',
+        user : 'dac',
+        password : 'password',
+        database : 'db'
+    })
+    
+    console.log(request.body)
 
+    statement = `update Customer
+    set  Name = '${request.body.Name}',
+         Password = '${request.body.Password}',
+         Mobile = '${request.body.Mobile}',
+         Address = '${request.body.Address}',
+         Email = '${request.body.Email}'
+    where ID = ${request.body.ID} `;
+    
+    connection.query(statement,(error,data) => {
+
+        if (error)
+          { 
+              console.log(`error : ${error}`)
+            response.end(`error : ${error}`)
+        }
+         else
+         {   
+             console.log(`row inserted successfully`)
+             console.table(data)
+             response.send(data)
+         }
+
+
+    })
+    
+
+
+});
 
 
 

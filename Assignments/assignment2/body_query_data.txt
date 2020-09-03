@@ -72,3 +72,12 @@ Customer table query
   "Mobile" : 988383383 , 
   "Address" : "nasik"  , 
    "Email" : "sarikaporje@gmail.com"  
+
+
+update query
+"ID" : 1,
+"Name" :  "blank " ,
+ "Password" : "password",
+  "Mobile" : 988383383 , 
+  "Address" : "nasik"  , 
+   "Email" : "blank@gmail.com"  
