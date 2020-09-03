@@ -30,3 +30,10 @@
 "Category" : "NonVeg Treat",
 "Description" : "Exotic Chicken,Pineapple,Jalapeno"
 
+update
+
+"ID" : 3,
+"Name" : "new Veg Hawaiian Delight (updated)",
+"type" : "  Veg",
+"Category" : "Veg Treat",
+"Description" : " new Golden Corn,Pineapple, Jalapeno"
