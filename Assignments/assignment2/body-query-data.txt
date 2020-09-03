@@ -1,0 +1,32 @@
+"Name" : "Margherita",
+"type" : "Veg",
+"Category" : "Simple Veg",
+"Description" : "Single Cheese Toppling"
+
+"Name" : "Cheese and Tomato",
+"type" : "Veg",
+"Category" : "Simple Veg",
+"Description" : "Cheese and Tomato"
+
+
+"Name" : "Veg Hawaiian Delight",
+"type" : "Veg",
+"Category" : "Veg Treat",
+"Description" : "Golden Corn,Pineapple, Jalapeno"
+
+
+"Name" : "Chicken Salami Special",
+"type" : "NonVeg",
+"Category" : "Simple NonVeg",
+"Description" : "Cheese and Exotic Chicken"
+
+"Name" : "Chicken and Barbaque Chicken",
+"type" : "NonVeg",
+"Category" : "Simple NonVeg",
+"Description" : "Cheese,Barbaquee Chicken"
+
+"Name" : "Chicken Hawaiian Twist",
+"type" : "NonVeg",
+"Category" : "NonVeg Treat",
+"Description" : "Exotic Chicken,Pineapple,Jalapeno"
+

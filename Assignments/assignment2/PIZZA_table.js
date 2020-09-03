@@ -54,6 +54,42 @@ app.get('/pizza',(request,response) =>
 
 });
 
+app.post('/pizza',(request,response) => 
+{
+       
+    const connection = mysql.createConnection({
+        host : 'localhost',
+        user : 'dac',
+        password : 'password',
+        database : 'db'
+    })
+    
+    console.log(request.body)
+
+    statement = `insert into PIZZA_ITEMS 
+    (Name,Type,Category,Description) 
+    values('${request.body.Name}','${request.body.Type}','${request.body.Category}','${request.body.Description}')`;
+    
+    connection.query(statement,(error,data) => {
+
+        if (error)
+          { 
+              console.log(`error : ${error}`)
+            response.end(`error : ${error}`)
+        }
+         else
+         {   
+             console.log(`row inserted successfully`)
+             console.table(data)
+             response.send(data)
+         }
+
+
+    })
+    
+
+
+});
 
 
 app.listen(3000,'0.0.0.0', () => {
