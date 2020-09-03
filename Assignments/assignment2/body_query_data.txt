@@ -43,4 +43,32 @@ update
 _________________________________________________________________________________
 Customer table query 
 
-suraj  | password | 988383383 | nasik   | surajporje@gmail.com  
+"Name" :  "suraj" ,
+ "Password" : "password",
+  "Mobile" : 988383383 , 
+  "Address" : "nasik"  , 
+   "Email" : "surajporje@gmail.com"  
+
+"Name" :  "sagar" ,
+ "Password" : "password",
+  "Mobile" : 988383383 , 
+  "Address" : "nasik"  , 
+   "Email" : "sagarporje@gmail.com"  
+
+   "Name" :  "kiran" ,
+ "Password" : "password",
+  "Mobile" : 988383383 , 
+  "Address" : "nasik"  , 
+   "Email" : "kiranporje@gmail.com"  
+
+   "Name" :  "swati" ,
+ "Password" : "password",
+  "Mobile" : 988383383 , 
+  "Address" : "nasik"  , 
+   "Email" : "swatiporje@gmail.com"  
+
+   "Name" :  "sarika" ,
+ "Password" : "password",
+  "Mobile" : 988383383 , 
+  "Address" : "nasik"  , 
+   "Email" : "sarikaporje@gmail.com"  

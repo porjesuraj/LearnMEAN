@@ -54,6 +54,52 @@ app.get('/customer',(request,response) =>
 
 });
 
+
+app.post('/customer',(request,response) => 
+{
+       
+    const connection = mysql.createConnection({
+        host : 'localhost',
+        user : 'dac',
+        password : 'password',
+        database : 'db'
+    })
+    
+    console.log(request.body)
+
+    statement = `insert into Customer
+    (Name,Password,Mobile,Address,Email) 
+    values('${request.body.Name}','${request.body.Password}','${request.body.Mobile}','${request.body.Address}','${request.body.Email}')`;
+    
+    connection.query(statement,(error,data) => {
+
+        if (error)
+          { 
+              console.log(`error : ${error}`)
+            response.end(`error : ${error}`)
+        }
+         else
+         {   
+             console.log(`row inserted successfully`)
+             console.table(data)
+             response.send(data)
+         }
+
+
+    })
+    
+
+
+});
+
+
+
+
+
+
+
+
+
 app.listen(3000,'0.0.0.0', () => {
 
     console.log(`server started successfully on port 3000 `)
