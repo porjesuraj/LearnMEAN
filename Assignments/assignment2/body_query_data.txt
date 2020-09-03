@@ -37,3 +37,10 @@ update
 "type" : "  Veg",
 "Category" : "Veg Treat",
 "Description" : " new Golden Corn,Pineapple, Jalapeno"
+
+
+
+_________________________________________________________________________________
+Customer table query 
+
+suraj  | password | 988383383 | nasik   | surajporje@gmail.com  
