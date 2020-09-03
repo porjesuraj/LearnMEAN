@@ -87,13 +87,6 @@ app.delete('/product',(request,response) => {
  //------------------------------------
 
 
-
-
-
-
-
-
-
 app.listen(3000,'0.0.0.0', () => {
     console.log(`server started on port 3000`)
 })

@@ -145,10 +145,8 @@ app.delete('/product',(request,response) =>
         })
 });
 
+// done get,post,put and delete for product 
 
-//____________________________
-// user route 
-//______________________________
 
 app.listen(3000,'0.0.0.0', () => {
     console.log(`server started on port 3000`)
