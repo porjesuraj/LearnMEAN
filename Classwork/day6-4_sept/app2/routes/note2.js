@@ -41,7 +41,7 @@ router.post('/',(request,response) => {
     const contents = request.body.contents
    
 
-  const statement = `insert into note (userid,contents) 
+  const statement = `insert into note (userId,contents) 
   values ('${userid}','${contents}') `;
 
     db.query(statement,(error,dbResult) => {
@@ -51,6 +51,25 @@ router.post('/',(request,response) => {
 
 
 })
+
+router.put('/',(request,response) => {
+  
+    console.log(request.body)
+    const userid = request.body.userid
+    const contents = request.body.contents
+   
+
+  const statement = `update note set contents = '${contents}'
+  where userID = ${userid}`;
+
+    db.query(statement,(error,dbResult) => {
+
+       response.send(utility.createResult(error,dbResult))
+    })
+
+
+})
+
 
 
 
