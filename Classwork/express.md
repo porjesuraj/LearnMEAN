@@ -7,7 +7,7 @@
 
 
 
-**mpm**
+**npm**
 - node package manager
 - a utility to manage th package develoed for nodejs
 - can be used for 
