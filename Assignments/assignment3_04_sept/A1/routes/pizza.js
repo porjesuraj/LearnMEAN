@@ -39,6 +39,24 @@ router.post('/',(request,response) => {
 })
 
 
+router.put('/',(request,response) => {
+    
+    const ID = request.body.ID
+    const Name = request.body.Name
+    const Type = request.body.Type
+    const Category = request.body.Category
+    const Description = request.body.Description
+    
+
+    const statement = `update PIZZA_ITEMS set  Name = '${Name}',Type = '${Type}',
+    Category = '${Category}',Description = '${Description}' where ID = ${ID}`;
+
+    db.query(statement,(error,dbResult) => {
+         response.send(utility.createResult(error,dbResult))
+
+    })
+})
+
 
 
 
