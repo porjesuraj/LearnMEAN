@@ -39,6 +39,25 @@ router.post('/',(request,response) => {
     })
 })
 
+router.put('/',(request,response) => {
+    
+    const ID = request.body.ID
+    const Name = request.body.Name
+    const Password = request.body.Password
+    const Mobile = request.body.Mobile
+    const Address = request.body.Address
+    const Email = request.body.Email
+
+
+    const statement = `update  Customer set Name = '${Name}', Password = '${Password}', Mobile = '${Mobile}', 
+    Address = '${Address}', Email = '${Email}' where ID = ${ID}`;
+
+    db.query(statement,(error,dbResult) => {
+         response.send(utility.createResult(error,dbResult))
+
+    })
+})
+
 
 
 module.exports = router
