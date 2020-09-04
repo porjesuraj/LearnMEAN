@@ -20,6 +20,28 @@ router.get('/',(request,response) =>
    
 })
 
+router.post('/',(request,response) => {
+    
+    
+    const Name = request.body.Name
+    const Type = request.body.Type
+    const Category = request.body.Category
+    const Description = request.body.Description
+    
+
+    const statement = `insert into PIZZA_ITEMS ( Name,Type,Category,Description)
+    values ('${Name}','${Type}','${Category}','${Description}')`;
+
+    db.query(statement,(error,dbResult) => {
+         response.send(utility.createResult(error,dbResult))
+
+    })
+})
+
+
+
+
+
 
 
 module.exports = router
