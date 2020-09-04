@@ -89,5 +89,26 @@ router.post('/signin',(request,response) => {
 
 })
 
+router.put('/',(request,response) => {
+  
+    console.log(request.body)
+    const id = request.body.id
+    const firstName = request.body.firstName
+    const lastName = request.body.lastName
+    const email = request.body.email
+    const password = request.body.password
+    const mobile = request.body.mobile
+
+  const statement = `update user set firstName = '${firstName}', lastName = '${lastName}',
+  email = '${email}',password = '${password}',mobile = '${mobile}' where id = ${id}`;
+
+    db.query(statement,(error,dbResult) => {
+
+       response.send(utility.createResult(error,dbResult))
+    })
+
+
+})
+
 
 module.exports = router
