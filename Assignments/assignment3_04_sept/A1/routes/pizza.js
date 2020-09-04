@@ -58,6 +58,19 @@ router.put('/',(request,response) => {
 })
 
 
+router.delete('/',(request,response) => {
+    
+    const ID = request.body.ID
+   
+    
+
+    const statement = `delete from PIZZA_ITEMS  where ID = ${ID}`;
+
+    db.query(statement,(error,dbResult) => {
+         response.send(utility.createResult(error,dbResult))
+
+    })
+})
 
 
 
