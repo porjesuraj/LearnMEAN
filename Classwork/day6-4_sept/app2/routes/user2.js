@@ -54,5 +54,40 @@ router.post('/signup',(request,response) => {
 })
 
 
+router.post('/signin',(request,response) => {
+  
+    
+    const email = request.body.email
+    const password = request.body.password
+   
+
+  const statement = `select * from user where email = '${email}' and  password ='${password}' `;
+
+    db.query(statement,(error,users) =>
+     {
+          const result = { "status" : "" , "error" : "", "data" : ""}
+         if(users.length == 0)
+         {
+             result['status'] = 'error'
+             result['error'] = error
+         }
+         else
+         {
+             const user = users[0]
+             result['status'] = 'success'
+             result['data'] = {
+                 "id" : user.id,
+                 "email" : user.email,
+                 "password" : user.password
+             }
+              
+         }
+
+       response.send(result)
+    })
+
+
+})
+
 
 module.exports = router
