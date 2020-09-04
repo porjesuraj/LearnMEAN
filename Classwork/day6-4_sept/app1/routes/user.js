@@ -24,5 +24,11 @@ router.put('/',(request,response) => {
     response.send('put/ user')
 })
 
+router.delete('/',(request,response) => {
+
+    console.log('delete / user')
+
+    response.send('delete/ user')
+})
 
 module.exports = router
