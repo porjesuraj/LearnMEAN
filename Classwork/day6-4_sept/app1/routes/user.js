@@ -17,7 +17,12 @@ router.post('/',(request,response) => {
     response.send('post/ user')
 })
 
+router.put('/',(request,response) => {
 
+    console.log('put/ user')
+
+    response.send('put/ user')
+})
 
 
 module.exports = router
