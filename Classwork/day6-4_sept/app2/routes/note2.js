@@ -70,7 +70,23 @@ router.put('/',(request,response) => {
 
 })
 
+router.delete('/',(request,response) => {
+  
+    console.log(request.body)
+    const userid = request.body.userid
+    
+   
 
+  const statement = `delete from note
+  where userID = ${userid}`;
+
+    db.query(statement,(error,dbResult) => {
+
+       response.send(utility.createResult(error,dbResult))
+    })
+
+
+})
 
 
 
