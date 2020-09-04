@@ -34,6 +34,25 @@ router.get('/',(request,response) => {
 })
 
 
+router.post('/',(request,response) => {
+  
+    console.log(request.body)
+    const userid = request.body.userid
+    const contents = request.body.contents
+   
+
+  const statement = `insert into note (userid,contents) 
+  values ('${userid}','${contents}') `;
+
+    db.query(statement,(error,dbResult) => {
+
+       response.send(utility.createResult(error,dbResult))
+    })
+
+
+})
+
+
 
 
 module.exports = router
