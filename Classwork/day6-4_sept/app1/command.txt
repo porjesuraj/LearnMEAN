@@ -1,0 +1,10 @@
+// to check if server is listening/working on a port n
+o 
+-> lsof -i :3000 
+   3000 = port no
+
+//to stop it 
+user 
+-> kill PID
+
+pid= process id (number) e.g 12806
