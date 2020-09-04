@@ -10,6 +10,14 @@ router.get('/',(request,response) => {
     response.send('get/ user')
 })
 
+router.post('/',(request,response) => {
+
+    console.log('post/ user')
+
+    response.send('post/ user')
+})
+
+
 
 
 module.exports = router
