@@ -80,9 +80,17 @@ router.post('/signin',(request,response) => {
     
     })
 
- router.put('/',(request,response) => {
- 
-        response.send('update user')
+ router.put('/:userId',(request,response) => {
+     const{userId} = request.params 
+    const {firstName,lastName,email,password,mobile} = request.body
+    const encryptedPassword = crypto.SHA256(password)
+     const statement = `update user set firstName = '${firstName}',lastName = '${lastName}',password = '${encryptedPassword}',
+     mobile = '${mobile}',email = '${email}' where id = ${userId}`;
+
+    
+     db.query(statement,(error,dbdata) => {
+         response.send(utils.createResult(error,dbdata))
+     })
         
         })  
 
