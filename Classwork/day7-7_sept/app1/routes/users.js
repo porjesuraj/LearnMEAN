@@ -1,18 +1,25 @@
 const express = require('express')
 const db = require('../db')
-
-
+const jwt = require('jsonwebtoken')
 const crypto = require('crypto-js')
 
 const utils = require('../utils')
 const router = express.Router()
 
 
-router.get('/profile/:id',(request,response) => {
-    //const {id} = request.body
+router.get('/profile',(request,response) => {
+
+    const token = request.headers['token']
+
+       try {
+
+
+        //const {id} = request.body
     //const{id} = request.query
+
+    const data = jwt.verify(token,'123456789')
     const {id} = request.params
-     const statement = `select *  from user  where id = '${id}'`;
+     const statement = `select * from user  where id = '${data.id}'`;
 
      db.query(statement,(error,users) => {
          if(error)
@@ -36,7 +43,13 @@ router.get('/profile/:id',(request,response) => {
      })
     
 
-  
+       }
+       catch (ex)
+       {
+           response.status(401)
+           response.send('not allowed to access this api')
+       }
+    
 })
 
 router.post('/signup',(request,response) => {
@@ -71,8 +84,13 @@ router.post('/signin',(request,response) => {
              else
              {
                  user = users[0]
-
-                 response.send({"status" : "success", "data" : user})
+     const token = jwt.sign({id : user['id']},'123456789')             
+                 response.send({"status" : "success", "data" : {
+                    firstName : user['firstName'],
+                    lastName : user['lastName'],
+                    email : user['email'],
+                    token : token
+                 } })
                  
              }
          }
