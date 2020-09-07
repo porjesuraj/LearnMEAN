@@ -5,16 +5,7 @@ const utils = require('../utils')
 const { request, response } = require('express')
 const router = express.Router()
 
-try{
-    const token = request.headers['token']
-    const data = jwt.verify(token,'123456789')
 
-}
-catch (ex)
-{
-    response.status(401)
-    response.send('you are not allowed to access this API')
-}
 
 router.get('/',(request,response) => {
 
