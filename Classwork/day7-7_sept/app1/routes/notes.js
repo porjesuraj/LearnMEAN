@@ -58,14 +58,24 @@ router.post('/',(request,response) => {
 
 router.put('/:id',(request,response) => {
 
-    const {id} = request.params
-    const{contents} = request.body
-    const statement = `update note  set contents = '${contents}' where id = ${id} `
+    try{
+        const token = request.headers['token']
+        const data = jwt.verify(token,'123456789')
+        const {id} = request.params
+        const{contents} = request.body
+        const statement = `update note  set contents = '${contents}' where id = ${id} `
+        
+         db.query(statement,(error,data) => {
     
-     db.query(statement,(error,data) => {
-
-        response.send(utils.createResult(error,data))
-     })
+            response.send(utils.createResult(error,data))
+         })
+    }
+    catch (ex)
+    {
+        response.status(401)
+        response.send('you are not allowed to access this API')
+    }
+    
 })
 
 router.delete('/:id',(request,response) => {
