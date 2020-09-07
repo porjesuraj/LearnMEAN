@@ -28,8 +28,30 @@ router.post('/signup',(request,response) => {
 })
 
 router.post('/signin',(request,response) => {
- 
-    response.send('check user')
+    const {email,password} = request.body
+    const encryptedPassword = crypto.SHA256(password)
+     const statement = `select *  from user  where email = '${email}' and password = '${encryptedPassword}'`;
+
+     db.query(statement,(error,users) => {
+         if(error)
+         {
+             response.send({"status" : "error","error" : error })
+         }
+         else 
+         {
+             if(users.length == 0)
+             {
+                response.send({"status" : "error","error" : "no user with this credentials" })
+             }
+             else
+             {
+                 user = users[0]
+
+                 response.send({"status" : "success", "data" : user})
+                 
+             }
+         }
+     })
     
     })
 
