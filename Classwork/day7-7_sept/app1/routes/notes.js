@@ -41,7 +41,17 @@ router.put('/:id',(request,response) => {
      })
 })
 
+router.delete('/:id',(request,response) => {
 
+    const {id} = request.params
+   
+    const statement = `delete from note  where id = ${id} `
+    
+     db.query(statement,(error,data) => {
+
+        response.send(utils.createResult(error,data))
+     })
+})
 
 
 module.exports = router
