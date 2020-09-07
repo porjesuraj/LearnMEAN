@@ -94,8 +94,18 @@ router.post('/signin',(request,response) => {
         
         })  
 
- router.delete('/',(request,response) => {
-     response.send('delete user')
+ router.delete('/:userId',(request,response) => {
+     
+    const{userId} = request.params 
+    
+   
+     const statement = `delete from user  where id = ${userId}`;
+
+    
+     db.query(statement,(error,dbdata) => {
+         response.send(utils.createResult(error,dbdata))
+     })
+
      
      })  
 
