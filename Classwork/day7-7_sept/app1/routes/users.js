@@ -8,10 +8,35 @@ const utils = require('../utils')
 const router = express.Router()
 
 
-router.get('/profile',(request,response) => {
+router.get('/profile/:id',(request,response) => {
+    //const {id} = request.body
+    //const{id} = request.query
+    const {id} = request.params
+     const statement = `select *  from user  where id = '${id}'`;
+
+     db.query(statement,(error,users) => {
+         if(error)
+         {
+             response.send({"status" : "error","error" : error })
+         }
+         else 
+         {
+             if(users.length == 0)
+             {
+                response.send({"status" : "error","error" : "no user with this credentials" })
+             }
+             else
+             {
+                 user = users[0]
+
+                 response.send({"status" : "success", "data" : user})
+                 
+             }
+         }
+     })
     
 
-  response.send('get profile')
+  
 })
 
 router.post('/signup',(request,response) => {
