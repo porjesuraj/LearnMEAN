@@ -29,6 +29,17 @@ router.post('/:id',(request,response) => {
      })
 })
 
+router.put('/:id',(request,response) => {
+
+    const {id} = request.params
+    const{contents} = request.body
+    const statement = `update note  set contents = '${contents}' where id = ${id} `
+    
+     db.query(statement,(error,data) => {
+
+        response.send(utils.createResult(error,data))
+     })
+})
 
 
 
