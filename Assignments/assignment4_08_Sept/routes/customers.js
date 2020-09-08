@@ -1,6 +1,7 @@
 const express = require('express')
 const db = require('../db')
 const utility = require('../utils')
+const config = require('../config')
 const crypto = require('crypto-js')
 const jwt = require('jsonwebtoken')
 const { request, response } = require('express')
@@ -18,13 +19,28 @@ router.get('/',(request,response) => {
 
     })
 })
-router.get('/:userId',(request,response) => {
+router.get('/profile',(request,response) => {
       const {userId} = request.params
-    const statement = `select * from customers where id = ${userId} `;
-    db.query(statement,(error,data) => {
-      
-        response.send(utility.createResult(error,data))
+    const statement = `select * from customers where id = ${request.userId} `;
+    db.query(statement,(error,users) => {
 
+        if(error)
+        {
+            response.send({status : 'error','error' : error })
+        }
+        else 
+        {
+            if(users.length == 0)
+            {
+                response.send({status : 'error','error' : 'user not in database'})
+            }
+            else
+            {
+                user = users[0]
+               
+                response.send(utility.createResult(error,user))
+            }
+        }
     })
 })
 
@@ -72,7 +88,7 @@ router.post('/signin',(request,response) => {
             else
             {
                 user = users[0]
-               const token = jwt.sign({id : user['id']},'1234567890')
+               const token = jwt.sign({id : user['id']},config.secret)
                 response.send(utility.createResult(error,
                     {
                         'name' : user['name'],
