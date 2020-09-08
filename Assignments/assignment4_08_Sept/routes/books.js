@@ -22,7 +22,18 @@ db.query(statement,(error,books) => {
 
 
 })
+router.get('/:bookId',(request,response) => {
 
+    const {bookId} = request.params
+    const statement = `select * from books where id = ${bookId}`;
+    
+    db.query(statement,(error,books) => {
+    
+        response.send(utility.createResult(error,books))
+    } )
+    
+    
+    })
 
 
 
