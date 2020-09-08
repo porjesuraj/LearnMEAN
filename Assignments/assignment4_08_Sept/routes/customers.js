@@ -2,6 +2,7 @@ const express = require('express')
 const db = require('../db')
 const utility = require('../utils')
 const crypto = require('crypto-js')
+const jwt = require('jsonwebtoken')
 const { request, response } = require('express')
 
 
@@ -48,7 +49,42 @@ router.post('/signup',(request,response) => {
 
 })
 
+router.post('/signin',(request,response) => {
+ 
+    const {password,email} = request.body
 
+//password size small cant add crypto
+    const statement =`select * from customers where email = '${email}' and password = '${password}'`;
+
+
+    db.query(statement,(error,users) => {
+
+        if(error)
+        {
+            response.send({status : 'error','error' : error })
+        }
+        else 
+        {
+            if(users.length == 0)
+            {
+                response.send({status : 'error','error' : 'user not in database'})
+            }
+            else
+            {
+                user = users[0]
+               const token = jwt.sign({id : user['id']},'1234567890')
+                response.send(utility.createResult(error,
+                    {
+                        'name' : user['name'],
+                        'email' : user['email'],
+                        token : token
+                    }
+                    ))
+            }
+        }
+    })
+
+})
 
 
 //==============================================
