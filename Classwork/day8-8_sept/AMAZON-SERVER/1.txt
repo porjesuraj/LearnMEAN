@@ -1,0 +1,21 @@
+- projects
+  - server.js <-- express app
+  - utils.js  <--utility functions(like create REsult)
+  - db.js db <--connection 
+  - config.js <-- application configuration
+  - routess    <-- (dir) will hold all routess
+    - <router>.js  <-- router to add required routes
+
+- modules 
+   - express         <--   for web server
+   - mysql2          <--    mysql connectivity
+   - jsonwebtoken    <--    jwt auth token
+    - nodemailer      <--    for sending email
+   - multer          <--    file uploading
+   - crypto-js       <--    for encryption
+
+   - morgan          <--    server logging
+   - swagger         <--    for API documentation 
+   - cors            <--    for cross origin resource sharing 
+   - mongojs         <--    for mongodb connectivity
+   - mongoose        <--    ORM (Object Relational Mapping)for mongo  
