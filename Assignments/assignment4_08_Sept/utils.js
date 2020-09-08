@@ -9,7 +9,7 @@ function createResult(error,data)
     else
     {
         result['status'] = 'success'
-        result['error'] = data
+        result['data'] = data
 
     }
     return result

@@ -22,7 +22,7 @@ db.query(statement,(error,books) => {
 
 
 })
-router.get('/:bookId',(request,response) => {
+router.get('/byid/:bookId',(request,response) => {
 
     const {bookId} = request.params
     const statement = `select * from books where id = ${bookId}`;
@@ -34,6 +34,19 @@ router.get('/:bookId',(request,response) => {
     
     
     })
+
+    router.get('/bysubject/:sname',(request,response) => {
+
+        const {sname} = request.params
+        const statement = `select * from books where subject = ${sname}`;
+        
+        db.query(statement,(error,data) => {
+        
+            response.send(utility.createResult(error,data))
+        } )
+        
+        
+        })   
 
 
 
