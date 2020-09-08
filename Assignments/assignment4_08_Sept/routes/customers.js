@@ -136,6 +136,21 @@ router.put('/edit',(request,response) => {
 
 //__DELETE___________________________________
 
+router.delete('/delete',(request,response) => {
+ 
+    const {name,password,mobile,address,email,birth} = request.body
+
+//password size small cant add crypto
+    const statement =`delete from customers
+      where id = '${request.userId}'` 
+
+    db.query(statement,(error,user) => {
+
+        response.send(utility.createResult(error,user))
+    })
+
+})
+
 
 //==============================================
 
