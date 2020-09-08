@@ -48,7 +48,18 @@ router.get('/byid/:bookId',(request,response) => {
         
         })   
 
+        router.get('/subjects',(request,response) => {
 
+        
+            const statement = `select DISTINCT subject from books`;
+            
+            db.query(statement,(error,data) => {
+            
+                response.send(utility.createResult(error,data))
+            } )
+            
+            
+            })   
 
 
 
