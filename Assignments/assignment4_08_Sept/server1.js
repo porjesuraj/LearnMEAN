@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 
 const { request, response } = require('express')
 const customerRouter = require('./routes/customers')
+const booksRouter = require('./routes/books')
 const config = require('./config')
 const app = express()
 
@@ -40,7 +41,7 @@ function getToken(request,response,next)
 app.use(getToken)
 //routes
 app.use('/customer',customerRouter)
-
+app.use('/book',booksRouter)
 
 app.get('/',(request,response) => {
     response.send('welcome to the application')
