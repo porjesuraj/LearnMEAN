@@ -57,7 +57,18 @@ router.put('/edit/:bookId',(request,response) => {
 //==============================================
 
 //__DELETE___________________________________
+router.delete('/delete/:bookId',(request,response) => {
+    const{bookId} = request.params   
 
+   
+  const statement = `delete from books
+   where id = '${bookId}'`;
+
+  db.query(statement,(error,book) => {
+      response.send(utility.createResult(error,book))
+  })
+
+})
 
 
 //==============================================
