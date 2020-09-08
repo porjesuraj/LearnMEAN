@@ -1,0 +1,371 @@
+{
+	"id": "f64bcfa3-fb69-44d4-bfb0-4ebb6be230fe",
+	"name": "books",
+	"allTests": [],
+	"timestamp": "2020-09-08T17:29:18.309Z",
+	"collection_id": "3e4c15d4-43ba-4748-9f03-3b191a5c00b7",
+	"folder_id": "bed8f07a-d013-4709-97ab-5d311dcd6ee3",
+	"target_type": "folder",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "3e4c15d4-43ba-4748-9f03-3b191a5c00b7",
+		"name": "assignment1",
+		"description": "",
+		"auth": null,
+		"events": [
+			{
+				"listen": "prerequest",
+				"script": {
+					"id": "78c792bd-ee89-48d9-9223-3273a03fd6a5",
+					"type": "text/javascript",
+					"exec": [
+						""
+					]
+				}
+			},
+			{
+				"listen": "test",
+				"script": {
+					"id": "4fff91b4-1b82-40fe-a30e-5a3f75890933",
+					"type": "text/javascript",
+					"exec": [
+						""
+					]
+				}
+			}
+		],
+		"variables": [
+			{
+				"key": "url",
+				"value": "http://localhost:3000",
+				"description": "",
+				"enabled": true
+			},
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNTk5NTgzNjA3fQ.Q2okapt-5gQ1t-C17rJJiTBVVm1lfPTx6_152hUPTLQ",
+				"description": "",
+				"enabled": true
+			}
+		],
+		"order": [],
+		"folders_order": [
+			"7892b157-2121-4047-a4a3-55f51b705085",
+			"bed8f07a-d013-4709-97ab-5d311dcd6ee3"
+		],
+		"owner": "12573058",
+		"permissions": {},
+		"favorite": false,
+		"shared": false,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": {
+		"id": "bed8f07a-d013-4709-97ab-5d311dcd6ee3",
+		"name": "books",
+		"description": "",
+		"auth": null,
+		"events": null,
+		"collection": "3e4c15d4-43ba-4748-9f03-3b191a5c00b7",
+		"folder": null,
+		"order": [
+			"ff062fdd-bf9c-436f-9d32-304273394d8f",
+			"417c0656-d555-49b8-8c91-661646a0043a",
+			"39d8f5b8-8b68-44a4-bb92-e0a1fef22804",
+			"f625782f-2ba9-47bd-9b03-c796e1f3f7eb",
+			"5f2938ed-f667-4d34-acd3-a281025137e8",
+			"84957e2b-908c-4c9f-8ce3-f21f74e7fcab",
+			"30df275f-929c-4bbc-8d96-3ed5c7fa2c77"
+		],
+		"folders_order": [],
+		"type": "folder",
+		"depth": 1
+	},
+	"environment": null,
+	"globals": null,
+	"results": [
+		{
+			"name": "get all books",
+			"id": "ff062fdd-bf9c-436f-9d32-304273394d8f",
+			"url": "http://localhost:3000/book/all",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"16"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "16",
+			"totalRequestTime": "16",
+			"iterationResults": {}
+		},
+		{
+			"name": "get books by id",
+			"id": "417c0656-d555-49b8-8c91-661646a0043a",
+			"url": "http://localhost:3000/book/byid/11",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"12"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "12",
+			"totalRequestTime": "12",
+			"iterationResults": {}
+		},
+		{
+			"name": "get book by subject",
+			"id": "39d8f5b8-8b68-44a4-bb92-e0a1fef22804",
+			"url": "http://localhost:3000/book/bysubject/'C'",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"5"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "5",
+			"totalRequestTime": "5",
+			"iterationResults": {}
+		},
+		{
+			"name": "get distinct subjects from books table",
+			"id": "f625782f-2ba9-47bd-9b03-c796e1f3f7eb",
+			"url": "http://localhost:3000/book/subjects",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"5"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "5",
+			"totalRequestTime": "5",
+			"iterationResults": {}
+		},
+		{
+			"name": "post add new book",
+			"id": "5f2938ed-f667-4d34-acd3-a281025137e8",
+			"url": "http://localhost:3000/book/add",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"134"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "134",
+			"totalRequestTime": "134",
+			"iterationResults": {}
+		},
+		{
+			"name": "put edit book by id",
+			"id": "84957e2b-908c-4c9f-8ce3-f21f74e7fcab",
+			"url": "http://localhost:3000/book/edit/50",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"110"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "110",
+			"totalRequestTime": "110",
+			"iterationResults": {}
+		},
+		{
+			"name": "delete book by id",
+			"id": "30df275f-929c-4bbc-8d96-3ed5c7fa2c77",
+			"url": "http://localhost:3000/book/delete/50",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"117"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "117",
+			"totalRequestTime": "117",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 0,
+	"totalFail": 0,
+	"totalTime": 399,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "get all books",
+			"id": "ff062fdd-bf9c-436f-9d32-304273394d8f",
+			"url": "http://localhost:3000/book/all",
+			"time": "2020-09-08T17:29:18.309Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "get books by id",
+			"id": "417c0656-d555-49b8-8c91-661646a0043a",
+			"url": "http://localhost:3000/book/byid/11",
+			"time": "2020-09-08T17:29:18.309Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "get book by subject",
+			"id": "39d8f5b8-8b68-44a4-bb92-e0a1fef22804",
+			"url": "http://localhost:3000/book/bysubject/'C'",
+			"time": "2020-09-08T17:29:18.309Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "get distinct subjects from books table",
+			"id": "f625782f-2ba9-47bd-9b03-c796e1f3f7eb",
+			"url": "http://localhost:3000/book/subjects",
+			"time": "2020-09-08T17:29:18.309Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "post add new book",
+			"id": "5f2938ed-f667-4d34-acd3-a281025137e8",
+			"url": "http://localhost:3000/book/add",
+			"time": "2020-09-08T17:29:18.309Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "put edit book by id",
+			"id": "84957e2b-908c-4c9f-8ce3-f21f74e7fcab",
+			"url": "http://localhost:3000/book/edit/50",
+			"time": "2020-09-08T17:29:18.309Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "delete book by id",
+			"id": "30df275f-929c-4bbc-8d96-3ed5c7fa2c77",
+			"url": "http://localhost:3000/book/delete/50",
+			"time": "2020-09-08T17:29:18.309Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		}
+	],
+	"synced": false
+}

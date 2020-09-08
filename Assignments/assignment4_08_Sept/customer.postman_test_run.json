@@ -1,0 +1,291 @@
+{
+	"id": "bd81df88-7c07-4b11-8a12-11e07544b16e",
+	"name": "customer",
+	"allTests": [],
+	"timestamp": "2020-09-08T17:31:25.075Z",
+	"collection_id": "3e4c15d4-43ba-4748-9f03-3b191a5c00b7",
+	"folder_id": "7892b157-2121-4047-a4a3-55f51b705085",
+	"target_type": "folder",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "3e4c15d4-43ba-4748-9f03-3b191a5c00b7",
+		"name": "assignment1",
+		"description": "",
+		"auth": null,
+		"events": [
+			{
+				"listen": "prerequest",
+				"script": {
+					"id": "78c792bd-ee89-48d9-9223-3273a03fd6a5",
+					"type": "text/javascript",
+					"exec": [
+						""
+					]
+				}
+			},
+			{
+				"listen": "test",
+				"script": {
+					"id": "4fff91b4-1b82-40fe-a30e-5a3f75890933",
+					"type": "text/javascript",
+					"exec": [
+						""
+					]
+				}
+			}
+		],
+		"variables": [
+			{
+				"key": "url",
+				"value": "http://localhost:3000",
+				"description": "",
+				"enabled": true
+			},
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNTk5NTgzNjA3fQ.Q2okapt-5gQ1t-C17rJJiTBVVm1lfPTx6_152hUPTLQ",
+				"description": "",
+				"enabled": true
+			}
+		],
+		"order": [],
+		"folders_order": [
+			"7892b157-2121-4047-a4a3-55f51b705085",
+			"bed8f07a-d013-4709-97ab-5d311dcd6ee3"
+		],
+		"owner": "12573058",
+		"permissions": {},
+		"favorite": false,
+		"shared": false,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": {
+		"id": "7892b157-2121-4047-a4a3-55f51b705085",
+		"name": "customer",
+		"description": "",
+		"auth": null,
+		"events": null,
+		"collection": "3e4c15d4-43ba-4748-9f03-3b191a5c00b7",
+		"folder": null,
+		"order": [
+			"4163e3af-51ec-4bad-87e3-9896115967be",
+			"74078e9d-af32-4c38-9baa-2189d07f8392",
+			"08b5375d-c2a9-43b8-9a7c-0b07c5fd0af6",
+			"f4937b94-1b1b-41f0-9014-af461ad6acf2",
+			"121ea75a-e1e9-40f2-9990-5c4bc97bb42d"
+		],
+		"folders_order": [],
+		"type": "folder",
+		"depth": 1
+	},
+	"environment": null,
+	"globals": null,
+	"results": [
+		{
+			"name": "customer-signup",
+			"id": "4163e3af-51ec-4bad-87e3-9896115967be",
+			"url": "http://localhost:3000/customer/signup",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"188"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "188",
+			"totalRequestTime": "188",
+			"iterationResults": {}
+		},
+		{
+			"name": "customer-signin",
+			"id": "74078e9d-af32-4c38-9baa-2189d07f8392",
+			"url": "http://localhost:3000/customer/signin",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"19"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "19",
+			"totalRequestTime": "19",
+			"iterationResults": {}
+		},
+		{
+			"name": "customer-profile",
+			"id": "08b5375d-c2a9-43b8-9a7c-0b07c5fd0af6",
+			"url": "http://localhost:3000/customer/profile",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "edit-customer",
+			"id": "f4937b94-1b1b-41f0-9014-af461ad6acf2",
+			"url": "http://localhost:3000/customer/edit",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"8"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "8",
+			"totalRequestTime": "8",
+			"iterationResults": {}
+		},
+		{
+			"name": "delete-customer",
+			"id": "121ea75a-e1e9-40f2-9990-5c4bc97bb42d",
+			"url": "http://localhost:3000/customer/delete",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"6"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "6",
+			"totalRequestTime": "6",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 0,
+	"totalFail": 0,
+	"totalTime": 232,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "customer-signup",
+			"id": "4163e3af-51ec-4bad-87e3-9896115967be",
+			"url": "http://localhost:3000/customer/signup",
+			"time": "2020-09-08T17:31:25.075Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "customer-signin",
+			"id": "74078e9d-af32-4c38-9baa-2189d07f8392",
+			"url": "http://localhost:3000/customer/signin",
+			"time": "2020-09-08T17:31:25.075Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "customer-profile",
+			"id": "08b5375d-c2a9-43b8-9a7c-0b07c5fd0af6",
+			"url": "http://localhost:3000/customer/profile",
+			"time": "2020-09-08T17:31:25.075Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "edit-customer",
+			"id": "f4937b94-1b1b-41f0-9014-af461ad6acf2",
+			"url": "http://localhost:3000/customer/edit",
+			"time": "2020-09-08T17:31:25.075Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "delete-customer",
+			"id": "121ea75a-e1e9-40f2-9990-5c4bc97bb42d",
+			"url": "http://localhost:3000/customer/delete",
+			"time": "2020-09-08T17:31:25.075Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		}
+	],
+	"synced": false
+}
