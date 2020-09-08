@@ -3,18 +3,18 @@
   - utils.js  <--utility functions(like create REsult)
   - db.js db <--connection 
   - config.js <-- application configuration
-  - routess    <-- (dir) will hold all routess
+  - routes    <-- (dir) will hold all routess
     - <router>.js  <-- router to add required routes
 
 - modules 
    - express         <--   for web server
    - mysql2          <--    mysql connectivity
    - jsonwebtoken    <--    jwt auth token
-    - nodemailer      <--    for sending email
-   - multer          <--    file uploading
+   - morgan          <--    server logging
    - crypto-js       <--    for encryption
 
-   - morgan          <--    server logging
+   - nodemailer      <--    for sending email
+    - multer          <--    file uploading
    - swagger         <--    for API documentation 
    - cors            <--    for cross origin resource sharing 
    - mongojs         <--    for mongodb connectivity
