@@ -10,7 +10,7 @@ const { request, response } = require('express')
 const router = express.Router()
 
 //__GET___________________________________
-router.get('/',(request,response) => {
+router.get('/all',(request,response) => {
 
     const statement = `select * from customers `;
     db.query(statement,(error,data) => {
@@ -107,6 +107,29 @@ router.post('/signin',(request,response) => {
 
 
 //__PUT___________________________________
+router.put('/edit',(request,response) => {
+ 
+    const {name,password,mobile,address,email,birth} = request.body
+
+//password size small cant add crypto
+    const statement =`update customers
+     set name = '${name}',
+     password = '${password}',
+     mobile = '${mobile}',
+     address = '${address}',
+     email = '${email}',
+     birth = '${birth}'
+      where id = ${request.userId}` 
+
+    db.query(statement,(error,user) => {
+
+        response.send(utility.createResult(error,user))
+    })
+
+})
+
+
+
 
 
 //==============================================
