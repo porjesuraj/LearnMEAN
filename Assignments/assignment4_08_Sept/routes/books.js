@@ -35,7 +35,22 @@ router.post('/add',(request,response) => {
 
 //__PUT___________________________________
 
+router.put('/edit/:bookId',(request,response) => {
+     const{bookId} = request.params   
 
+    const {name,author,subject, price} = request.body
+   const statement = `update books
+    set name = '${name}',
+    author = '${author}',
+    subject = '${subject}',
+    price = '${price}'
+    where id = '${bookId}'`;
+
+   db.query(statement,(error,book) => {
+       response.send(utility.createResult(error,book))
+   })
+
+})
 
 
 
