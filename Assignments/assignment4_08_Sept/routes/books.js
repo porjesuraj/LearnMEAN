@@ -11,6 +11,23 @@ const router = express.Router()
 
 //__GET___________________________________
 
+router.get('/all',(request,response) => {
+
+const statement = `select * from books`;
+
+db.query(statement,(error,books) => {
+
+    response.send(utility.createResult(error,books))
+} )
+
+
+})
+
+
+
+
+
+
 
 //==============================================
 
