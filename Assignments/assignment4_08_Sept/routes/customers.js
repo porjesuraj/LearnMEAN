@@ -6,7 +6,7 @@ const utility = require('../utils')
 const router = express.Router()
 
 //__GET___________________________________
-router.get('/allUsers',(request,response) => {
+router.get('/',(request,response) => {
 
     const statement = `select * from customers `;
     db.query(statement,(error,data) => {
@@ -15,7 +15,15 @@ router.get('/allUsers',(request,response) => {
 
     })
 })
+router.get('/:userId',(request,response) => {
+      const {userId} = request.params
+    const statement = `select * from customers where id = ${userId} `;
+    db.query(statement,(error,data) => {
+      
+        response.send(utility.createResult(error,data))
 
+    })
+})
 
 
 
