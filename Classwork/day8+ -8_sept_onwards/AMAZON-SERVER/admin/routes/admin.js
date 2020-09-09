@@ -80,8 +80,23 @@ router.post('/signin', (request, response) => {
 // PUT
 // ----------------------------------------------------
 
-router.put('', (request, response) => {
-  response.send()
+router.put('/edit/:id', (request, response) =>
+ { 
+   const {id} = request.params
+  
+  const { firstName, lastName, email, password } = request.body
+
+  const encryptedPassword = crypto.SHA256(password)
+  const statement = `update  admin 
+  set firstName = '${firstName}',
+  lastName = '${lastName}',
+  email = '${email}',
+  password = '${encryptedPassword}'
+   where id = ${id}`
+  db.query(statement, (error, data) => {
+    response.send(utils.createResult(error, data))
+  })
+
 })
 
 // ----------------------------------------------------
@@ -92,8 +107,14 @@ router.put('', (request, response) => {
 // DELETE
 // ----------------------------------------------------
 
-router.delete('', (request, response) => {
-  response.send()
+router.delete('/:id', (request, response) => {
+  const {id} = request.params
+  
+  const statement = `delete from admin where id = ${id}`
+  db.query(statement, (error, data) => {
+    response.send(utils.createResult(error, data))
+  })
+
 })
 
 // ----------------------------------------------------
