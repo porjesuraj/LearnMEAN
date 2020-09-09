@@ -1,8 +1,7 @@
 const express = require('express')
-const utils = require('../utils')
-const db = require('../db')
-const config = require('../config')
-const { Router, request, response } = require('express')
+const utils = require('../../utils')
+const db = require('../../db')
+const config = require('../../config')
 const router = express.Router()
 
 //GET all get here-----------------------------------------

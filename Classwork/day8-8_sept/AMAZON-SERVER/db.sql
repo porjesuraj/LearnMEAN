@@ -17,6 +17,23 @@ create table user (
 	active INTEGER DEFAULT 1
 );
 
+create table admin (
+	id integer PRIMARY KEY auto_increment, 
+	firstName VARCHAR(100),
+	lastName VARCHAR(100), 
+	phone VARCHAR(20),
+	email VARCHAR(100),
+	password VARCHAR(100),
+	createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	active INTEGER DEFAULT 1
+);
+
+
+
+
+
+
+
 create table category (
 	id integer PRIMARY KEY auto_increment, 
 	title VARCHAR(50),

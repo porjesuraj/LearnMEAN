@@ -1,7 +1,7 @@
 const express = require('express')
-const utils = require('../utils')
-const db = require('../db')
-const config = require('../config')
+const utils = require('../../utils')
+const db = require('../../db')
+const config = require('../../config')
 const crypto = require('crypto-js')
 const jwt = require('jsonwebtoken')
 
@@ -16,8 +16,7 @@ router.get('/profile', (request, response) => {
     //console.log(config.secret)
     
     
-      const statement = `select firstName, lastName, email, phone, address, 
-      city, zip, country from user where id = ${request.userId}`;
+      const statement = `select firstName, lastName, email, phone from admin where id = ${request.userId}`;
       db.query(statement, (error, users) => {
         if (error) {
           response.send({status: 'error', error: error})
@@ -44,7 +43,7 @@ router.post('/signup', (request, response) => {
   const { firstName, lastName, email, password } = request.body
 
   const encryptedPassword = crypto.SHA256(password)
-  const statement = `insert into user (firstName, lastName, email, password) values (
+  const statement = `insert into admin (firstName, lastName, email, password) values (
     '${firstName}', '${lastName}', '${email}', '${encryptedPassword}'
   )`
   db.query(statement, (error, data) => {
@@ -54,7 +53,7 @@ router.post('/signup', (request, response) => {
 
 router.post('/signin', (request, response) => {
   const {email, password} = request.body
-  const statement = `select id, firstName, lastName from user where email = '${email}' and password = '${crypto.SHA256(password)}'`
+  const statement = `select id, firstName, lastName from admin where email = '${email}' and password = '${crypto.SHA256(password)}'`
   db.query(statement, (error, users) => {
     if (error) {
       response.send({status: 'error', error: error})

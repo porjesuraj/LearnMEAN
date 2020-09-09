@@ -1,19 +1,31 @@
 function createResult(error,data) 
 {
+   return error ? createError(error) : createSuccess(data)
+
+}
+
+function createError(error) 
+{
     const result = {}
-    if(error)
-    {
+   
         result['status'] = 'error'
         result['data'] = error
-    }
-    else
-    {
-        result['status'] = 'success'
-        result['data'] = data
-
-    }
+   
     return result
 
 }
 
-module.exports = { createResult : createResult}
+function createSuccess(data) 
+{
+    const result = {}
+   
+    
+        result['status'] = 'success'
+        result['data'] = data
+    return result
+
+}
+
+module.exports = { createResult : createResult,
+    createError : createError, createSuccess : createSuccess
+}
