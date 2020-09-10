@@ -80,7 +80,7 @@ router.get('/profile', (request, response) => {
 /**
  * @swagger
  *
- * /signup:
+ * /admin/signup:
  *   post:
  *     description: select all from admin
  *     produces:
@@ -131,7 +131,7 @@ router.post('/signup', (request, response) => {
 /**
  * @swagger
  *
- * /signin:
+ * /admin/signin:
  *   post:
  *     description: select all from admin
  *     produces:
@@ -188,7 +188,7 @@ router.post('/signin', (request, response) => {
 /**
  * @swagger
  *
- * /edit/:id:
+ * /admin/edit/:id:
  *   put:
  *     description: select all from admin
  *     produces:
@@ -259,7 +259,7 @@ router.put('/edit/:id', (request, response) =>
 /**
  * @swagger
  *
- * /:id:
+ * /admin/:id:
  *   delete:
  *     description: delete all from admin
  *     produces:

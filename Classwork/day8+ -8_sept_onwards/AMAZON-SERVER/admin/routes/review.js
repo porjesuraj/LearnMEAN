@@ -7,7 +7,48 @@ const router = express.Router()
 
 //GET all get here-----------------------------------------
 
-    router.get('',(request,response) => {
+//_______swagger
+
+/**
+ * @swagger
+ *
+ * /review:
+ *   get:
+ *     description: category management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: review
+ *         description: product review
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: productId
+ *         description: product info
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: rating
+ *         description: rating product
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: userId
+ *         description: user info
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+//__________
+
+
+
+    router.get('/',(request,response) => {
 
        const statement = `select review,userId,productId,rating from productReviews`;
        db.query(statement,(error,data) => {
@@ -48,6 +89,50 @@ const router = express.Router()
 //       })
 //
 //}) as product edit is available no need here 
+//------------------------------------------------------------------------------
+//PUT
+//_______swagger
+
+/**
+ * @swagger
+ *
+ * /review/update-state/:id/:isActive:
+ *   put:
+ *     description: category management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: review
+ *         description: product review
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: productId
+ *         description: product info
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: rating
+ *         description: rating product
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: userId
+ *         description: user info
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+//__________
+
+
+
+
 
 router.put('/update-state/:id/:isActive', (request,response) => {
 
@@ -62,8 +147,56 @@ router.put('/update-state/:id/:isActive', (request,response) => {
 
 //------------------------------------------------------------------------
 //DELETE--------------------------------------------------------
-router.delete('',(request,response) => {
-    response.send()
+
+//_______swagger
+
+/**
+ * @swagger
+ *
+ * /review/:id:
+ *   delete:
+ *     description: category management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: review
+ *         description: product review
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: productId
+ *         description: product info
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: rating
+ *         description: rating product
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: userId
+ *         description: user info
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+//__________
+
+
+
+
+router.delete('/:id',(request,response) => {
+   const{id} = request.params
+   const statement = `delete from productReviews 
+   where id = ${id}`;
+   db.query(statement,(error,data) => {
+       response.send(utils.createResult(error,data))
+   })
 })
 //----------------------------------------------------------------------------
 module.exports = router
