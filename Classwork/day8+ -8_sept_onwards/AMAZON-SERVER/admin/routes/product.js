@@ -2,14 +2,66 @@ const express = require('express')
 const utils = require('../../utils')
 const db = require('../../db')
 const config = require('../../config')
+//_________________________________________________
+//multer : to upload anytype of document by request object to a given path 
+
+const multer = require('multer')
+const { request } = require('express')
+const upload = multer({dest : 'images/'})
+//___________________________________________________
+
 const router = express.Router()
 
+
+
 //GET all get here-----------------------------------------
+
+/**
+ * @swagger
+ *
+ * /product/:
+ *   get:
+ *     description: product management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: product title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: product description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: category
+ *         description: category id
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: price
+ *         description: product price
+ *         in: formData
+ *         required: true
+ *         type: string
+  *       - name: brand
+ *         description: brand id
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+
 
 router.get('/', (request, response) => {
     const statement = `select p.id,p.title, p.description, 
     c.id as categoryId,c.title as categoryTitle,
-    b.id as brandId,b.title as brandTitle, p.price,p.image from product p 
+    b.id as brandId,b.title as brandTitle, p.price,p.image,p.isActive from product p 
     INNER JOIN category c ON c.id = p.category
     INNER JOIN brand b ON b.id = p.brand ;`
     db.query(statement, (error, data) => {
@@ -31,6 +83,8 @@ router.get('/', (request, response) => {
             title: tmpProduct['title'],
             description: tmpProduct['description'],
             price: tmpProduct['price'],
+            image : tmpProduct['image'],
+            isActive : tmpProduct['isActive'],
             brand: {
               id: tmpProduct['brandId'],
               title: tmpProduct['brandTitle']
@@ -51,6 +105,71 @@ router.get('/', (request, response) => {
   })
     //--------------------------------------------------------
 //POST----------------------------------------------------------
+
+
+router.post('/upload-image/:productId',upload.single('image'),(request,response) => {
+
+  const {productId} = request.params
+  const fileName = request.file.filename
+  console.log(request.file.filename)
+
+  const statement = `update product set image = '${fileName}'
+  where id = ${productId}`
+
+  db.query(statement,(error,data) => {
+
+    response.send(utils.createResult(error,data))
+  })
+
+
+})
+
+
+
+
+/**
+ * @swagger
+ *
+ * /product/create:
+ *   post:
+ *     description: product management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: product title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: product description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: category
+ *         description: category id
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: price
+ *         description: product price
+ *         in: formData
+ *         required: true
+ *         type: string
+  *       - name: brand
+ *         description: brand id
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+
+
+
 router.post('/create',(request,response) => {
     const {title,description,category,price,brand} = request.body
     const statement = `insert into product (title,description,category,price,brand)
@@ -61,6 +180,49 @@ router.post('/create',(request,response) => {
 })
 //----------------------------------------------------------------------------
 //PUT---------------------------------------------------------------------------
+
+/**
+ * @swagger
+ *
+ * /product/:id:
+ *   put:
+ *     description: product management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: product title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: product description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: category
+ *         description: category id
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: price
+ *         description: product price
+ *         in: formData
+ *         required: true
+ *         type: string
+  *       - name: brand
+ *         description: brand id
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+
+
 router.put('/:id',(request,response) => {
     const {id} = request.params
     const {title,description,category,price,brand} = request.body
@@ -79,6 +241,48 @@ router.put('/:id',(request,response) => {
 })
 //------------------------------------------------------------------------
 //DELETE--------------------------------------------------------
+
+/**
+ * @swagger
+ *
+ * /product/:id:
+ *   delete:
+ *     description: product management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: product title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: product description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: category
+ *         description: category id
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: price
+ *         description: product price
+ *         in: formData
+ *         required: true
+ *         type: string
+  *       - name: brand
+ *         description: brand id
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+
 router.delete('/:id',(request,response) => {
     const {id} = request.params
     
