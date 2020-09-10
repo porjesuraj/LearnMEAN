@@ -12,6 +12,23 @@ const router = express.Router()
 // GET
 // ----------------------------------------------------
 
+//swagger 
+/**
+ * @swagger
+ *
+ * /profile:
+ *   get:
+ *     description: select all from admin
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *     responses:
+ *       200:
+ *         description: admin info from get method by id 
+ */
+
+
+
 router.get('/profile', (request, response) => {
     //console.log(config.secret)
     
@@ -39,6 +56,43 @@ router.get('/profile', (request, response) => {
 // POST
 // ----------------------------------------------------
 
+//swagger 
+/**
+ * @swagger
+ *
+ * /signup:
+ *   post:
+ *     description: select all from admin
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: firstName
+ *         description: firstName to use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: lastName
+ *         description: lastName to use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: email
+ *         description: email use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: password
+ *         description: User's password.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: admin info 
+ */
+
+
+
 router.post('/signup', (request, response) => {
   const { firstName, lastName, email, password } = request.body
 
@@ -50,6 +104,36 @@ router.post('/signup', (request, response) => {
     response.send(utils.createResult(error, data))
   })
 })
+
+//swagger
+
+//swagger 
+/**
+ * @swagger
+ *
+ * /signin:
+ *   post:
+ *     description: select all from admin
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: email
+ *         description: email use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: password
+ *         description: User's password.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: admin info 
+ */
+
+
+
 
 router.post('/signin', (request, response) => {
   const {email, password} = request.body
@@ -80,6 +164,50 @@ router.post('/signin', (request, response) => {
 // PUT
 // ----------------------------------------------------
 
+//swagger 
+/**
+ * @swagger
+ *
+ * /edit/:id:
+ *   put:
+ *     description: select all from admin
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: firstName
+ *         description: firstName to use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: lastName
+ *         description: lastName to use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: email
+ *         description: email use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: password
+ *         description: User's password.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: admin info 
+ */
+
+
+
+
+
+
+
+
+
+
 router.put('/edit/:id', (request, response) =>
  { 
    const {id} = request.params
@@ -106,6 +234,22 @@ router.put('/edit/:id', (request, response) =>
 // ----------------------------------------------------
 // DELETE
 // ----------------------------------------------------
+
+//swagger 
+/**
+ * @swagger
+ *
+ * /:id:
+ *   delete:
+ *     description: delete all from admin
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *     responses:
+ *       200:
+ *         description: admin info 
+ */
+
 
 router.delete('/:id', (request, response) => {
   const {id} = request.params

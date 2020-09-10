@@ -1,8 +1,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const morgan = require('morgan')
 const config = require('./config')
 const jwt = require('jsonwebtoken')
+// morgan : to keep logging entries
+const morgan = require('morgan')
+//swagger to docuement apis
+const swaggerJsDoc = require('swagger-jsdoc')
+const swaggerUi = require('swagger-ui-express')
+
 //routers
 const adminROuter = require('./admin/routes/admin')
 const brantROuter = require('./admin/routes/brand')
@@ -22,6 +27,27 @@ app.use(bodyParser.json())
 app.use(morgan("combined"))
 //app.use(morgan("tiny"))
 // add the routes
+
+//swagger init 
+const options = {
+  definition: {
+    openapi: '3.0.0', 
+    info: {
+      title: 'Amazon clone admin panel', // Title (required)
+      version: '1.0.0', // Version (required)
+      description : 'this is a express server applicaiton'
+    },
+  },
+  // Path to the API docs
+  apis: ['./admin/routes/*.js'],
+};
+
+const swaggerSpec = swaggerJsDoc(options)
+
+app.use('/adminApiDocs',swaggerUi.serve,swaggerUi.setup(swaggerSpec) );
+
+
+
 
 //add a middleware for getting the id from token
 function getUserId(request,response,next)

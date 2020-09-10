@@ -4,7 +4,7 @@
   - db.js db         --------- connection 
   - config.js        --------- application configuration
   - routes           --------- (dir) will hold all routess
-  - <router\>.js     --------- router to add required routes
+    - <router\>.js     --------- router to add required routes
 
 - modules 
    - express         ---------   for web server
@@ -20,10 +20,11 @@
    - mongojs         ---------    for mongodb connectivity
    - mongoose        ---------    ORM (Object Relational Mapping)for mongo  
 
+   
 
-   1.this is an application which will look like amazon
+- 1.this is an application which will be amazon clone
   - parts
-    1. user front
+    1. **User front**
     - Product management
        - search the product
        - list the product
@@ -59,7 +60,7 @@
       - contact us 
       - about us
 
-    2. admin front/panel
+    2. **admin front/panel**
     - Category management
       - add category       : done 
       - update category   : done 
@@ -99,6 +100,13 @@
     - Signup : done
     - Signin : done 
 
-    - Analytics
+    - **Analytics**
       
-       
+    <!-- not professional documentation 
+     Product: 
+     - GET/product
+     - POST/product
+      - title : string
+      - description : string  -->
+
+      
