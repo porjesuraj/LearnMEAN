@@ -12,26 +12,13 @@ const router = express.Router()
 // GET
 // ----------------------------------------------------
 
-router.get('/profile', (request, response) => {
-    //console.log(config.secret)
-    
-    
-      response.send()
-    
-  })
-// ----------------------------------------------------
-
-// ----------------------------------------------------
-// POST
-// ----------------------------------------------------
-
 //swagger 
 /**
  * @swagger
  *
- * /user/signup:
- *   post:
- *     description: select all from admin
+ * /user/profile:
+ *   get:
+ *     description: select all from user
  *     produces:
  *       - application/json
  *     parameters:
@@ -55,6 +42,79 @@ router.get('/profile', (request, response) => {
  *         in: formData
  *         required: true
  *         type: string
+ *       - name: address
+ *         description: User's address.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: user info 
+ */
+
+
+
+
+router.get('/profile', (request, response) => {
+    //console.log(config.secret)
+    
+    const statement = `select firstName, lastName, email, password,address,city,
+    country,zip,phone from user where id = ${request.userId}`;
+    db.query(statement, (error, users) => {
+      if (error) {
+        response.send({status: 'error', error: error})
+      } else {
+        if (users.length == 0) {
+          response.send({status: 'error', error: 'user does not exist'})
+        } else {
+          const user = users[0]
+          response.send(utils.createResult(error, user))
+        }
+      }
+    })
+    
+  })
+// ----------------------------------------------------
+
+// ----------------------------------------------------
+// POST
+// ----------------------------------------------------
+
+//swagger 
+/**
+ * @swagger
+ *
+ * /user/signup:
+ *   post:
+ *     description: select all from user
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: firstName
+ *         description: firstName to use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: lastName
+ *         description: lastName to use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: email
+ *         description: email use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: password
+ *         description: User's password.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: address
+ *         description: User's address.
+ *         in: formData
+ *         required: true
+ *         type: string
  *     responses:
  *       200:
  *         description: user info 
@@ -63,12 +123,13 @@ router.get('/profile', (request, response) => {
 
 
 router.post('/signup', (request, response) => {
-  const { firstName, lastName, email, password } = request.body
+  const { firstName, lastName, email, password,address,city,country,zip,phone } = request.body
 
   
-  const statement = `insert into user (firstName, lastName, email, password) values (
-    '${firstName}', '${lastName}', '${email}', '${crypto.SHA256(password)}'
-  )`
+  const statement = `insert into user (firstName, lastName, email, password,address,city,
+    country,zip,phone)
+   values ('${firstName}', '${lastName}', '${email}', '${crypto.SHA256(password)}','${address}','${city}',
+   '${country}','${zip}','${phone}')`
   db.query(statement, (error, data) => {
 
     mailer.sendEmail(email,'Welcome to mystore','<h1>welcome</h1>',(error,info) => {
@@ -81,6 +142,58 @@ router.post('/signup', (request, response) => {
 })
 
 
+//swagger 
+/**
+ * @swagger
+ *
+ * /user/signin:
+ *   post:
+ *     description: select all from user
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: email
+ *         description: email use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: password
+ *         description: User's password.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: user info 
+ */
+
+
+
+
+router.post('/signin', (request, response) => {
+    const {email, password} = request.body
+    const statement = `select id, firstName, lastName from user where email = '${email}'
+     and password = '${crypto.SHA256(password)}'`
+    db.query(statement, (error, users) => {
+      if (error) {
+        response.send({status: 'error', error: error})
+      } else {
+        if (users.length == 0) {
+          response.send({status: 'error', error: 'user does not exist'})
+        } else {
+          const user = users[0]
+          const token = jwt.sign({id: user['id']}, config.secret)
+          response.send(utils.createResult(error, {
+            firstName: user['firstName'],
+            lastName: user['lastName'],
+            token: token
+          }))
+        }
+      }
+    })
+  })
+
+
 
 // ----------------------------------------------------
 
@@ -88,6 +201,83 @@ router.post('/signup', (request, response) => {
 // ----------------------------------------------------
 // PUT
 // ----------------------------------------------------
+
+//swagger 
+/**
+ * @swagger
+ *
+ * /user/edit/:id:
+ *   put:
+ *     description: select all from user
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: firstName
+ *         description: firstName to use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: lastName
+ *         description: lastName to use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: email
+ *         description: email use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: password
+ *         description: User's password.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: address
+ *         description: User's address.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: user info 
+ */
+
+
+
+router.put('/edit/:userId', (request, response) => {
+    const {userId} = request.params 
+    const { firstName, lastName, email, password,address,city,country,zip,phone } = request.body
+  
+    
+    const statement = `update user
+     set firstName = '${firstName}',
+     lastName = '${lastName}',
+      email = '${email}',
+     password = '${crypto.SHA256(password)}',
+     address = '${address}',
+     city = '${city}',
+     country = '${country}',
+     zip = '${zip}',
+     phone = '${phone}'
+     where id = ${userId}`
+     db.query(statement, (error, data) => {
+
+        mailer.sendEmail(email,'hello user','<h1>account updated</h1>',(error,info) => {
+            console.log(error)
+            console.log(info)
+            response.send(utils.createResult(error,data))
+        }  )
+    
+      })
+  })
+
+
+
+
+
+
+
+
 
 
 // ----------------------------------------------------
@@ -97,6 +287,66 @@ router.post('/signup', (request, response) => {
 // ----------------------------------------------------
 // DELETE
 // ----------------------------------------------------
+
+//swagger 
+/**
+ * @swagger
+ *
+ * /user/:id:
+ *   delete:
+ *     description: select all from user
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: firstName
+ *         description: firstName to use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: lastName
+ *         description: lastName to use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: email
+ *         description: email use for login.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: password
+ *         description: User's password.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: address
+ *         description: User's address.
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: user info 
+ */
+
+
+
+router.delete('/:userId', (request, response) => {
+    const {userId} = request.params 
+   
+    
+    const statement = `delete from user where id = ${userId}`
+    db.query(statement, (error, data) => {
+
+        response.send(utils.createResult(error,data))
+        //mailer.sendEmail(email,'account deleted  on mystore','<h1>bye bye</h1>',(error,info) => {
+        //    console.log(error)
+        //    console.log(info)
+        //    response.send(utils.createResult(error,data))
+        //}  )
+    //
+      })
+  })
+
 
 
 

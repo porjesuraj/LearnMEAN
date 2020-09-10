@@ -58,7 +58,7 @@ function getUserId(request,response,next)
     else
     {
     try {
-        const token = request.headers['token']
+        const token = request.headers['token2']
         const data = jwt.verify(token, config.secret)
         //add a new key names userID with logged in user's id
         request.userId = data['id']
@@ -67,7 +67,7 @@ function getUserId(request,response,next)
         
       } catch (ex) {
         response.status(401)
-        response.send({status: 'error', error: 'protected api'})
+        response.send({status: 'error', error: 'protected api user'})
       }
 
     }

@@ -55,8 +55,8 @@
        - forget password
        - logout
        - delete an account
-      - signup
-      - signin
+      - signup  : done 
+      - signin : done 
       - contact us 
       - about us
 
@@ -75,11 +75,11 @@
       - add product         : done
       - update product : done
        - update attributes : done
-       - update images     : ------ tommorow
-       - suspend product
+       - update images     : done
+       - suspend product  : done 
       - get all products   : done
       - delete product  : done
-      - review managment
+      - review managment : done 
     - User management
       - get all users
       - update user

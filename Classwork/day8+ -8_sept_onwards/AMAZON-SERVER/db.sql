@@ -28,12 +28,6 @@ create table admin (
 	active INTEGER DEFAULT 1
 );
 
-
-
-
-
-
-
 create table category (
 	id integer PRIMARY KEY auto_increment, 
 	title VARCHAR(50),
@@ -56,6 +50,7 @@ create table product (
 	price DECIMAL,
 	brand INTEGER,
 	image VARCHAR(100),
+	isActive INTEGER DEFAULT 1
 	createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -88,3 +83,9 @@ create table orderDetails (
 	totalAmount DECIMAL,
 	createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+-- insert into productReviews (userId, productId, review, rating) values (1, 1, 'This is a nice product', 4);
+-- insert into productReviews (userId, productId, review, rating) values (2, 1, 'This is a worst product I have ever seen.... ', 1);
+
+-- ALTER table product add COLUMN isActive INTEGER DEFAULT 1;
