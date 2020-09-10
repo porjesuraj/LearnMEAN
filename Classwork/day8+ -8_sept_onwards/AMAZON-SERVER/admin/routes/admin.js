@@ -12,20 +12,40 @@ const router = express.Router()
 // GET
 // ----------------------------------------------------
 
-//swagger 
 /**
  * @swagger
  *
- * /profile:
+ * /admin/profle:
  *   get:
- *     description: select all from admin
+ *     description: for signing up an administrator
  *     produces:
  *       - application/json
  *     parameters:
+ *       - name: firstName
+ *         description: first name of admin
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: lastName
+ *         description: last name of admin
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: email
+ *         description: email of admin
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: phone
+ *         description: admin phone.
+ *         in: formData
+ *         required: true
+ *         type: string
  *     responses:
  *       200:
- *         description: admin info from get method by id 
+ *         description: successful message
  */
+
 
 
 

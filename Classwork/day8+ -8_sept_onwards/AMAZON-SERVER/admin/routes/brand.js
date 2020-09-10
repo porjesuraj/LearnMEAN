@@ -10,6 +10,41 @@ const router = express.Router()
 
 //GET all get here-----------------------------------------
 
+//_________________________-swagger
+
+/**
+ * @swagger
+ *
+ * /brand/all:
+ *   get:
+ *     description: brand management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: brand title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: brand description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: brand info message
+ */
+
+
+//_______________________________-
+
+
+
+
+
+
+
     router.get('/all',(request,response) => {
         const statement = `select * from brand`;
         db.query(statement,(error,data) => {
@@ -19,6 +54,40 @@ const router = express.Router()
     })
     //--------------------------------------------------------
 //POST----------------------------------------------------------
+
+//_________________________-swagger
+
+/**
+ * @swagger
+ *
+ * /brand/:
+ *   post:
+ *     description: brand management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: brand title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: brand description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: brand info message
+ */
+
+
+//_______________________________-
+
+
+
+
+
 router.post('/',(request,response) => {
 
     const {title ,description } = request.body
@@ -32,6 +101,39 @@ router.post('/',(request,response) => {
 })
 //----------------------------------------------------------------------------
 //PUT---------------------------------------------------------------------------
+
+//_________________________-swagger
+
+/**
+ * @swagger
+ *
+ * /brand/:id:
+ *   put:
+ *     description: brand management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: brand title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: brand description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: brand info message
+ */
+
+
+//_______________________________-
+
+
+
+
 router.put('/:id', (request, response) => {
     const {id} = request.params
     const {title, description} = request.body
@@ -42,6 +144,38 @@ router.put('/:id', (request, response) => {
   })
 //------------------------------------------------------------------------
 //DELETE--------------------------------------------------------
+//_________________________-swagger
+
+/**
+ * @swagger
+ *
+ * /brand/:id:
+ *  delete:
+ *     description: brand management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: brand title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: brand description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: brand info message
+ */
+
+
+//_______________________________-
+
+
+
+
 router.delete('/:id',(request,response) => {
     const{id} = request.params
    

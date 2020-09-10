@@ -7,6 +7,34 @@ const router = express.Router()
 
 //GET all get here-----------------------------------------
 
+/**
+ * @swagger
+ *
+ * /category/:
+ *   get:
+ *     description: category management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: category title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: category description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+//_______________________________-
+
+
 router.get('/',(request,response) => {
     const statement = `select * from category`;
     db.query(statement,(error,data) => {
@@ -16,6 +44,37 @@ router.get('/',(request,response) => {
 })
     //--------------------------------------------------------
 //POST----------------------------------------------------------
+//_________________________-swagger
+
+/**
+ * @swagger
+ *
+ * /category/:
+ *   post:
+ *     description: category management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: category title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: category description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+//_______________________________-
+
+
+
 router.post('/',(request,response) => {
 
     const {title ,description } = request.body
@@ -29,6 +88,34 @@ router.post('/',(request,response) => {
 })
 //----------------------------------------------------------------------------
 //PUT---------------------------------------------------------------------------
+
+/**
+ * @swagger
+ *
+ * /category/:id:
+ *   put:
+ *     description: category management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: category title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: category description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+//_______________________________-
+
 router.put('/:id', (request, response) => {
     const {id} = request.params
     const {title, description} = request.body
@@ -39,6 +126,34 @@ router.put('/:id', (request, response) => {
   })
 //------------------------------------------------------------------------
 //DELETE--------------------------------------------------------
+/**
+ * @swagger
+ *
+ * /category/:id:
+ *   delete:
+ *     description: category management
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: title
+ *         description: category title
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: description
+ *         description: category description
+ *         in: formData
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: category info message
+ */
+
+
+//_______________________________-
+
+
 router.delete('/:id',(request,response) => {
     const{id} = request.params
    
