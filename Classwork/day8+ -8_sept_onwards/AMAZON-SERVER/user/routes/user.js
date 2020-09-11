@@ -5,6 +5,9 @@ const config = require('../../config')
 const crypto = require('crypto-js')
 const jwt = require('jsonwebtoken')
 const mailer = require('./../../mailer')
+const uuid = require('uuid')
+const path = require('path')
+const fs = require('fs')
 const router = express.Router()
 
 
@@ -123,16 +126,19 @@ router.get('/profile', (request, response) => {
 
 
 router.post('/signup', (request, response) => {
-  const { firstName, lastName, email, password,address,city,country,zip,phone } = request.body
-
+  const { firstName, lastName, email, password } = request.body
+ const activationToken = uuid.v4()
+const activationLink = `http://localhost:3000/user/activate/${activationToken}`;
+ const htmlPath = path.join(__dirname,'/../templates/signup_active_link.html')
+ let body = '' + fs.readFileSync(htmlPath)
+body = body.replace('firstName',firstName)
+body = body.replace('activationLink',activationLink) 
   
-  const statement = `insert into user (firstName, lastName, email, password,address,city,
-    country,zip,phone)
-   values ('${firstName}', '${lastName}', '${email}', '${crypto.SHA256(password)}','${address}','${city}',
-   '${country}','${zip}','${phone}')`
+  const statement = `insert into user (firstName, lastName, email, password,activationLink)
+   values ('${firstName}', '${lastName}', '${email}', '${crypto.SHA256(password)}','${activationToken}')`
   db.query(statement, (error, data) => {
 
-    mailer.sendEmail(email,'Welcome to mystore','<h1>welcome</h1>',(error,info) => {
+    mailer.sendEmail(email,'Welcome to mystore',body,(error,info) => {
         console.log(error)
         console.log(info)
         response.send(utils.createResult(error,data))

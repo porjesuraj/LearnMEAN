@@ -14,7 +14,8 @@ create table user (
 	email VARCHAR(100),
 	password VARCHAR(100),
 	createdOn TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	active INTEGER DEFAULT 1
+	active INTEGER DEFAULT 0,
+	activationToken VARCHAR(100)
 );
 
 create table admin (

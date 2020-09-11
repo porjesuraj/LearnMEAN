@@ -109,4 +109,29 @@
       - title : string
       - description : string  -->
 
-      
+       - User activation 
+      - sign up 
+       - generate unique token
+         - by js random function  javascript random()
+         - guid - globally unique identifier
+         
+         - uuid - universally unique identifier (npm install uuid)
+
+       - generate the unique link 
+        - http://localhost:3000/user/active/</token>
+       - send an email with the activation link with 
+       activation token
+       - user clicks on the link 
+       -within the route (which is going to hndle the activiation)
+       - read the activation token from query string 
+       - find the user associated with the token
+       - activate user (set the active column value to 1)
+       - reset the activation token (remove the token from the column)
+
+
+       _________________________________________________________
+       - forgot password
+        - email (check if exist)
+        - generate otp (random no of 4 digit)
+        - send the otp to your email
+        - reset the email

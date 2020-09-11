@@ -51,14 +51,15 @@ app.use('/userApiDocs',swaggerUi.serve,swaggerUi.setup(swaggerSpec) );
 function getUserId(request,response,next)
 {       
     if(request.url == '/user/signin' 
-    || request.url == '/user/signup')
+    || request.url == '/user/signup'
+    || request.url == '/logo.png')
     {
           next()
     }
     else
     {
     try {
-        const token = request.headers['token2']
+        const token = request.headers['token']
         const data = jwt.verify(token, config.secret)
         //add a new key names userID with logged in user's id
         request.userId = data['id']
@@ -79,7 +80,7 @@ app.use(getUserId)
 //app.use((request,response,next) => {
 //    
 //})
-
+app.use(express.static('images'))
 
 // add the routes
 app.use('/user',userRouter)
