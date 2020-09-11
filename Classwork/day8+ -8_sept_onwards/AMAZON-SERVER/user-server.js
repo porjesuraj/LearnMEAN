@@ -10,7 +10,7 @@ const swaggerUi = require('swagger-ui-express')
 
 //routers
 const userRouter = require('./user/routes/user')
-
+const orderRouter = require('./user/routes/order')
 
 const { request, response } = require('express')
 
@@ -85,7 +85,7 @@ app.use(express.static('images/'))
 
 // add the routes
 app.use('/user',userRouter)
-
+app.use('/order',orderRouter)
 
 //default router
 

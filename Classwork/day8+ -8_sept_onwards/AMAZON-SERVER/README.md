@@ -45,8 +45,8 @@
          - track an order
        - list order history
     - Profile management
-       - get the profile
-       - update profile
+       - get the profile  : done
+       - update profile : done
        - Address management
          - add address
          - update address
@@ -54,7 +54,7 @@
        - change password
        - forget password
        - logout
-       - delete an account
+       - delete an account : done
       - signup  : done 
       - signin : done 
       - contact us 

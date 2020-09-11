@@ -340,10 +340,14 @@ router.put('/edit/:userId', (request, response) => {
      country = '${country}',
      zip = '${zip}',
      phone = '${phone}'
-     where id = ${userId}`
+     where id = ${userId}`;
+     let body = 
+     `<h2> account updated <h2>
+     <p> best regards by mystore </p>
+     `
      db.query(statement, (error, data) => {
 
-        mailer.sendEmail(email,'hello user','<h1>account updated</h1>',(error,info) => {
+        mailer.sendEmail(email,'hello user',body,(error,info) => {
             console.log(error)
             console.log(info)
             response.send(utils.createResult(error,data))
