@@ -82,18 +82,19 @@ router.get('/profile', (request, response) => {
 
 
 
-  router.get('/activate/:activaiontoken',(request,response) => {
-    const{activationToken} = request.params
-         const statement = `update user set active = 1 and activationToken = ${activationToken} 
-         where activationToken = ${activationToken}`;
+  router.get('/activate/:token',(request,response) => {
+    const{token} = request.params
+         const activatestatement = `update user set active = 1, 
+         activationToken = '' 
+         where activationToken = '${token}'`;
         
        
         
         
-         db.query(statement,(error,data) => {
+         db.query(activatestatement,(error,data) => {
           const htmlPath = path.join(__dirname,'/../templates/activated_account.html')
           let body = '' + fs.readFileSync(htmlPath)
-          
+          body = body.replace('firstName','user')
             response.header('Content-Type','text/html')
             response.send(body)
 
@@ -101,6 +102,42 @@ router.get('/profile', (request, response) => {
 
 
   })
+
+  router.get('/forgot-password/:email',(request,response) => {
+     const {email} = request.params
+
+    const statement = `select id from user where email = '${email}'`;
+
+    db.query(statement,(error,users) => {
+          
+      if (error)
+      {
+        response.send(utils.createError(error))
+
+      }
+      else if (users.length == 0)
+      {
+        response.send('user does not exist')
+      }
+      else
+      {
+        const otp = utils.createOTP()
+        const body = `otp = ${otp}`
+
+        mailer.sendEmail(email,'reset password',body,(error,data) => {
+
+          response.send(utils.createResult(error, { otp : otp,email: email}))
+        })
+
+      }
+
+    })
+
+     
+
+  })
+
+  //forgot password
 // ----------------------------------------------------
 
 // ----------------------------------------------------
@@ -158,7 +195,7 @@ const activationLink = `http://localhost:3000/user/activate/${activationToken}`;
 body = body.replace('firstName',firstName)
 body = body.replace('activationLink',activationLink) 
   
-  const statement = `insert into user (firstName, lastName, email, password,activationLink)
+  const statement = `insert into user (firstName, lastName, email, password,activationToken)
    values ('${firstName}', '${lastName}', '${email}', '${crypto.SHA256(password)}','${activationToken}')`
   db.query(statement, (error, data) => {
 
