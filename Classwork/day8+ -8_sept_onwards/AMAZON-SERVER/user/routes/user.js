@@ -8,6 +8,8 @@ const mailer = require('./../../mailer')
 const uuid = require('uuid')
 const path = require('path')
 const fs = require('fs')
+const { request } = require('http')
+const { response } = require('express')
 const router = express.Router()
 
 
@@ -76,6 +78,28 @@ router.get('/profile', (request, response) => {
       }
     })
     
+  })
+
+
+
+  router.get('/activate/:activaiontoken',(request,response) => {
+    const{activationToken} = request.params
+         const statement = `update user set active = 1 and activationToken = ${activationToken} 
+         where activationToken = ${activationToken}`;
+        
+       
+        
+        
+         db.query(statement,(error,data) => {
+          const htmlPath = path.join(__dirname,'/../templates/activated_account.html')
+          let body = '' + fs.readFileSync(htmlPath)
+          
+            response.header('Content-Type','text/html')
+            response.send(body)
+
+         })
+
+
   })
 // ----------------------------------------------------
 

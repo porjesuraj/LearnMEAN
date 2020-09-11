@@ -52,7 +52,8 @@ function getUserId(request,response,next)
 {       
     if(request.url == '/user/signin' 
     || request.url == '/user/signup'
-    || request.url == '/logo.png')
+    || request.url == '/logo.png'
+    || request.url.startsWith('/user/activate'))
     {
           next()
     }
@@ -80,7 +81,7 @@ app.use(getUserId)
 //app.use((request,response,next) => {
 //    
 //})
-app.use(express.static('images'))
+app.use(express.static('images/'))
 
 // add the routes
 app.use('/user',userRouter)
