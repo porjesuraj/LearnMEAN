@@ -30,4 +30,8 @@ function Person1(name, age, address) {
     this.address = address;
 }
 var person1 = new Person1("suraj", 26, "nasik");
-//console.log(person1)
+function add(x, y) {
+    return x + y;
+}
+add("suraj", "porje");
+add(30, 20);

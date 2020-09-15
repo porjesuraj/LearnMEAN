@@ -178,3 +178,113 @@ tsc -v or tsc --version
           myvar3 = true
         ```
 
+### object oriented programming
+
+- to create a class use **class** keyword 
+```ts
+class Person{
+    //implicit property declaration 
+   name
+   //explicit propery declaration
+   age:number 
+   email:string
+   address:string
+
+}
+
+//const p1 = new Person()
+//p1.name = "suraj"
+//p1.age = 24
+//p1.email = "suraj@gmail.com"
+//p1.address = "nasik"
+//console.log(p1)
+
+```
+- **class**
+ - template to create a an object
+ - **object**
+ - collection of key-value pairs, few values are function , few values are properties
+  - i.e collection of 
+    - 1. property
+    - attributed pf a class
+    e.g. name attribute of a person
+    - 2. method
+    - function declared inside a class
+    - e.g 
+    - types
+     - **setter**
+       - used to set value of a property
+       ```ts
+         class Mobile{
+
+           private model:string
+           //setter
+           public setModel(model:string)
+           {
+               this.model = model
+           }
+         }
+       ```
+     - **getter**
+     - used to get a value of a property by function return 
+      ```ts
+        class Mobile{
+
+         private model:string
+       
+         //getter 
+          public getModel()
+          {
+              return this.model
+          }
+        }
+      ```
+     - **constructor**
+      - use to initialize an object, while construction
+      - in typescript ,the constructor of a class must have a name
+      - 2 types
+        -  parameterized constructor
+        -  parameterless constructor
+      as **constuctor**
+      ```ts
+      //parameterless 
+          class Person{
+
+            constructor ()
+            {
+              console.log('inside constructor)
+            }
+          }
+
+          //trying to implement a constructor , use keyword constructor
+           public constructor(name:string = '',age:number = 0)
+           {
+               console.log("inside constructor")
+               this._name = name
+               this._age = age
+           }
+
+      ``` 
+     -**destructor // not supported**
+     - **facilitator***
+      - its a utility function , to add facility
+      e.g. 
+      ```ts
+         // facilitator or utility 
+          public canVote()
+          {
+              if(this._age >= 18) 
+              { console.log(`${this._name} is eligiable`)}
+              else
+               {console.log(`${this._name} is not eligiable`) }
+          }
+
+      ````
+- access specifiers 
+ 1. public 
+  -  by default every class as treated as public
+ 2. private
+ 3. protected
+
+- **this** reference
+    - using this while accessing the data member are mandetory

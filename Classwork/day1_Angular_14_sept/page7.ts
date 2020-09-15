@@ -54,3 +54,5 @@ function Person1(name,age,address)
 }
 var person1 = new Person1("suraj",26,"nasik")
 //console.log(person1)
+
+
