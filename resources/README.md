@@ -269,5 +269,245 @@ console.log(add(30,20)) //50
 - Thus, in order to achieve function overloading, we must declare all the functions with possible signatures. 
 - Also, function implementation should have compatible types for all declarations.
 
+### Does TypeScript support all object oriented principles?give reason?
+
+- TypeScript is object oriented JavaScript. 
+- TypeScript supports object-oriented programming features like classes, interfaces, etc. 
+- A class in terms of OOP is a blueprint for creating objects. 
+- A class encapsulates data for the object. 
+- Typescript gives built in support for this concept called class. 
+- JavaScript ES5 or earlier didn’t support classes. 
+- Typescript gets this feature from ES6.
+- Reasons 
+   1. TypeScript supports the concept of Inheritance.
+     -  A class inherits from another class using the ‘extends’ keyword. Child classes inherit all    properties and methods except private members and constructors from the parent class.
+    - Multiple inheritence − (A class can inherit from multiple classes)
+      TypeScript doesn’t support multiple inheritance.
+   2. Encapsulation
+    - A class can control the visibility of its data members to members of other classes.
+    - access modifiers supported by TypeScript are −
+         - 1.	public
+           - A public data member has universal accessibility. Data members in a class are public by    default.
+         - 2.	private
+           - Private data members are accessible only within the class that defines these members. If an    external class member tries to access a private member, the compiler throws an error.
+         - 3.protected
+           - A protected data member is accessible by the members within the same class as that of the    former and also by the members of the child classes.
+   3. Abstraction
+    - Abstraction is a way to model objects in a system that creates a separation of duties between class  and the code that inherits it.
+    -  It’s also a way to enforce a concept called contract based development, 
+    A developer creates  a class or interface, and that class type specifies what the calling code should implement, but not how. 
+       - So it’s the job of the abstract type to define what needs to be done, 
+       - but up to the consuming types(object/consumer) to actually do those things.
+    - IN Typescript,  To enforce abstraction, inherit from abstract classes/interfaces using extends/implement keyword
+    
+   4. Polymorphism.  
+   - When multiple classes inherit from a parent and override the same functionality, the result is    polymorphism. Each of those child classes now implements a property or method, but they each may have their own way of performing that implementation.
+   - in typescript it can be achieved , by making the 
+     - method/property as abstract 
+     - and using the same method/property name in sub classes for that specific method implementation
+
+### What is getters/setters in TypeScript?
+- The getters and setters allow you to control the access to the properties of a class.
+ 1. A getter method
+    -  returns the value of the property’s value.
+    -  A getter is also called an accessor.
+    - A getter method starts with the keyword **get**
+    ```ts
+      // getter to get age
+         public get age() {
+             return this._age;
+         }
 
 
+    ```
+ 2. A setter method
+    -  updates the property’s value.
+    -  A setter is also known as a mutator.   
+    - a setter method starts with the keyword **set**
+    ```ts
+    //setter to set age with check 
+     public set age(theAge: number) {
+        if (theAge <= 0 || theAge >= 200) {
+            throw new Error('The age is invalid');
+        }
+        this._age = theAge;
+    }
+
+    ```
+     - so setter can be used to avoid repeating the check         
+### What is super in TypeScript?
+- The super keyword is used to refer to the immediate parent of a class. 
+- It can be used in expressions to reference base class properties and the base class constructor or methods. 
+- Super calls consist of the keyword super followed by an argument list enclosed in parentheses. 
+- Super calls are only permitted in constructors of derived classes.
+```ts
+
+ super( data members,...)
+ super.methods()
+```
+
+### Which keyword is used for inheritance in TypeScript? Example?
+
+- A class inherits from another class using the ‘extends’ keyword. 
+- Child classes inherit all properties and methods except private members and constructors from the parent class.
+- e.g 
+```ts
+class Shape{
+
+    _Area: number 
+
+    constructor (Area:number)
+    {
+        this._Area = Area
+    }
+}
+
+class Circle extends Shape {
+
+   display() :void{
+       console.log(`Area of circle is ${this._Area}`)
+   }
+}
+
+const c1 = new Circle(100)
+
+c1.display() //Area of circle is 100
+
+```
+### Write a function that converts user entered date formatted as (MM/DD/YYYY) to a (YYYYMMDD) format.The parameter "userdate" and the return value are strings.
+>  For Example,it should convert user entered date "12/31/2019" to "20191231"
+function formatDate ( userDate ){
+//write your code here
+}
+console.log ( formatDate( "12/31/2019" ))
+
+-
+```ts
+function formatDates(userDate:string)
+{ // "12/31/2019"  outpot 2019,12,31
+  const date = userDate.split('/')
+
+  console.log(`date is ${date[2] + date[0] + date[1]}`)
+     const result = date[2] + date[0] + date[1]
+     return result
+}
+
+formatDates("12/31/2019")
+//or 
+console.log(formatDates("12/31/2019"))
+```
+### How to check type of variable in typescript?
+
+- using typeof() fucntion 
+
+### TypeScript Variable Scope
+- The scope of a variable specifies where the variable is defined. The availability of a variable within a program is determined by its scope. 
+
+- TypeScript variables can be of the following scopes −
+
+1. Global Scope − Global variables are declared outside the programming constructs. These variables can be accessed from anywhere within your code.
+
+2. Class Scope − These variables are also called fields. Fields or class variables are declared within the class but outside the methods. These variables can be accessed using the object of the class. Fields can also be static. Static fields can be accessed using the class name.
+
+3. Local Scope − Local variables, as the name suggests, are declared within the constructs like methods, loops etc. Local variables are accessible only within the construct where they are declared.
+```ts
+var global_num = 12          //global variable 
+class Numbers { 
+   num_val = 13;             //class variable 
+   static sval = 10;         //static field 
+   
+   storeNum():void { 
+      var local_num = 14;    //local variable 
+   } 
+} 
+console.log("Global num: "+global_num)  
+console.log(Numbers.sval)   //static variable  
+var obj = new Numbers(); 
+console.log("Global num: "+obj.num_val) 
+
+```
+
+### What do you understand by classes in Typescript? List some features of classes.
+- TypeScript is object oriented JavaScript. 
+- TypeScript supports object-oriented programming features like classes, interfaces, etc. 
+- A class in terms of OOP is a blueprint for creating objects. 
+- A class encapsulates data for the object. 
+- Typescript gives built in support for this concept called class. 
+- JavaScript ES5 or earlier didn’t support classes. 
+- Typescript gets this feature from ES6.
+- classes are the fundamental entities used to create reusable components.
+- Functionalities are passed down to classes and objects are created from classes.
+-  The class in TypeScript is compiled to plain JavaScript functions by the TypeScript compiler to work across platforms and browsers.
+
+- features : 
+1. **Constructor**
+   - The constructor is a special type of method which is called when creating an  object. In TypeScript, the constructor method is always defined with the name  "constructor".
+
+It is not necessary for a class to have a constructor.
+
+2. **Creating an Object of Class**
+- An object of the class can be created using the new keyword.
+
+-  If the class includes a parameterized constructor, then we can pass the values while creating the object.
+
+3. **Inheritance**
+Just like object-oriented languages such as Java and C#, TypeScript classes can be extended to create new classes with inheritance, using the keyword extends.
+- We must call super() method first before assigning values to properties in the constructor of the derived class.
+4. **Class Implements Interface**
+5. class can implement **single or multiple interfaces**.
+
+6. **Interface extends Class**
+An interface can also extend a class to represent a type.
+
+Example: Interface Extends Class Copy
+```ts
+class Person {
+    name: string;
+}
+
+interface IEmployee extends Person { 
+    empCode: number;
+}
+
+let emp: IEmployee = { empCode  : 1, name:"James Bond" }
+```
+In the above example, IEmployee is an interface that extends the Person class. So, we can declare a variable of type IEmployee with two properties. So now, we must declare and initialize values at the same time.
+
+7. **Method Overriding**
+- When a child class defines its own implementation of a method from the parent class, it is called method overriding.
+
+### What is needs to done if i want option A as output( note: dont change 1st line of code)
+```ts 
+ let a:string=47;
+
+console.log( " Value of a= " +a);
+A) Value of a= 47
+B) Value of a= 0
+C) Value of a= 
+D) Error
+```
+- console.log( ` value of a= ${a}`);
+
+
+### find the bug
+```ts
+function average(a, b) {
+var z=parseInt(a)
+return z + b/ 2;
+}
+
+var num1:string="10"
+var num2:number=30
+console.log(average(num1, num2)); // "10" + 30/2
+
+Find the bug in given code
+```
+- result  25, no error
+- return (z+b)/2, bug 
+
+### A ______ data member is accessible by the members within the same class as that of the former and also by the members of the child classes.
+- A. protected
+- B. public
+- C. private
+- D. All of the above
+- Ans : A
