@@ -511,3 +511,121 @@ Find the bug in given code
 - C. private
 - D. All of the above
 - Ans : A
+
+
+## day 3 _ sept 16
+
+### Explain angular
+- Angular is a TypeScript-based open-source web application framework, developed and maintained by Google.
+-  It offers an easy and powerful way of building front end web-based applications.
+- Angular integrates a range of features like declarative templates, dependency injection, end-to-end tooling, etc. that facilitates web application development.
+- Angular is a platform and framework for building single-page client applications using HTML and TypeScript.
+-  Angular is written in TypeScript. 
+- It implements core and optional functionality as a set of TypeScript libraries that you import into your apps. 
+- The basic building blocks of angular are NgModules, 
+- an Angular app is defined by a set of NgModules.
+   -  An app always has at least a root module that enables bootstrapping, and typically has many more feature modules.
+
+   
+### What are the advantages of angular?
+- The advantages of AngularJS are −
+
+  -  It provides the capability to create Single Page Application in a very clean and maintainable way.
+  -  It provides data binding capability to HTML. Thus, it gives user a rich and responsive experience.-  AngularJS code is unit testable.
+  -  AngularJS uses dependency injection and make use of separation of concerns.
+  -  AngularJS provides reusable components.
+  -  With AngularJS, the developers can achieve more functionality with short code.
+  -  In AngularJS, views are pure html pages, and controllers written in JavaScript do the business processing.
+  -  On the top of everything, AngularJS applications can run on all major browsers and smart phones, including Android and iOS based phones/tablets.
+ 
+- Disadvantages of AngularJS
+
+- Though AngularJS comes with a lot of merits, here are some points of concern −
+
+    - Not Secure − Being JavaScript only framework, application written in AngularJS are not safe. Server side authentication and authorization is must to keep an application secure.
+
+    - Not degradable − If the user of your application disables JavaScript, then nothing would be visible, except the basic page.
+ 
+### purpose of angular assets folder?
+- Contains image and other asset files to be copied as-is when you build your application.
+- Assets folder is used in angular for maintaining file which doesn't have to be modified while compiling. 
+- You can't maintain any files like Images, json or any other file types in a component folder(folders are only for development purpose only) because it will be not recognized while compiling.
+- If you are in any component always set image path like this. Always maintain assets as a starting folder
+```ts 
+
+assets/pic.img
+```
+### what exactly does ng new in angular?
+- Creates a new workspace and an initial Angular app.
+
+      
+```ts  
+ng new <name> [options]
+     
+ng n <name> [options]
+```
+- Creates and initializes a new Angular app that is the default project for a new workspace.
+
+- Provides interactive prompts for optional configuration, such as adding routing support. All prompts can safely be allowed to default.
+- The new workspace folder is given the specified project name, and contains configuration files at the top level.
+- By default, the files for a new initial app (with the same name as the workspace) are placed in the src/ subfolder. Corresponding end-to-end tests are placed in the e2e/ subfolder.
+- The new app's configuration appears in the projects section of the angular.json workspace configuration file, under its project name.
+
+### what exactly does ng serve in angular?
+
+- ng serve command builds and serve the application. 
+- It rebuilds the application if changes occur.
+- Syntax
+```ts
+ng serve <project> [options]
+ng s <project> [options]
+//project The name of the project to build. Can be an application or a library.
+```
+-  Options are optional parameters.
+- e.g 
+    1. --host=host 
+    - Host to listen on.Default: localhost
+    2. --port 	
+    - Port to listen on.Default: 4200
+    3. --watch=true|false 	
+    - Rebuild on change.Default: true
+    4. --open=true|false  or -o= true|false	
+    - Opens the url in default browser.Default: false
+    - Aliases: -o
+    5. --help=true|false|json|JSON 	
+    - Shows a help message for this command in the console.
+     - Default: false
+
+### What is angular JSON and package JSON?
+1. A file named angular.json
+   -  at the root level of an Angular workspace provides workspace-wide and project-specific configuration defaults for build and development tools provided by the Angular CLI.
+2. package.json
+- Both npm and yarn install the packages that are identified in a package.json file.
+- The CLI command ng new creates a package.json file when it creates the new workspace. 
+  - This package.json is used by all projects in the workspace, 
+  - including the initial app project that is created by the CLI when it creates the workspace.
+  - Initially, this package.json includes a starter set of packages, some of which are required by Angular and others that support common application scenarios.
+  - You add packages to package.json as your application evolves. You may even remove some.
+
+  - The package.json is organized into two groups of packages:
+
+   -  Dependencies are essential to running applications.
+    - DevDependencies are only necessary to develop applications.
+
+### What is a single page application in AngularJS?
+- AngularJS is one of the first JS frameworks for single page applications. 
+It is a set of tools that significantly simplifies SPA development.
+ - SPA means Single Page Applications
+ - Such web applications load the HTML, CSS or JS of the page once, and don’t require reloading within page-to-page navigation.
+ -  three main SPA advantages.
+1. Speed
+   - On SPA, the page navigation seems to be quick enough thank to caching process. It means that an   application will not load the whole page at the request of a user, it will only download the required   parts.
+2. Caching process
+   - On the one hand, an application never stops checking if the previously downloaded data remains the    same to update it when needed. So, the app doesn’t waste time loading the whole page again and again. -    On the other hand, the Multiple Page Application successfully uses caching as well, though the download    speed here depends more on business needs and can be increased if necessary.
+
+3.UX
+   - UX design in SPA is generally better and more pleasant for an end-user.  
+   - A great SPA advantage and the main reason for turning to SPA is its high interactivity an  d   possibility to work offline. 
+   - Thus, it seems that you’re dealing with a desktop application rather than with a web page.
+
+- So, Single Page Application built in AngularJS is quick to build and easy to use, though it possesses some cons as well as pros.

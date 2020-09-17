@@ -168,3 +168,13 @@ tsc --target es5  page3.ts;node page3.js
 
 // set compile for es5 and higher
 ```
+### If you don't want to use sudo everytime then change permission of directory which contains your angular apps.
+
+- run below command
+```bash
+sudo chmod a+rwx "Path of directoy which contain angular apps"
+```
+- if it doesnt work use 
+```bash
+sudo chown -R username  /home/sunbeam/App1/my-app
+```
