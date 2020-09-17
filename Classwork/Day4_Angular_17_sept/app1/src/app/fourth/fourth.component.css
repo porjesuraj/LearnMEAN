@@ -1,0 +1,22 @@
+.box
+{
+    width: 200px;
+    height: 100px;
+}
+
+.green-box
+{
+    background-color: green;
+}
+.red-box
+{
+    background-color: red;
+}
+.yellow-box
+{
+    background-color: yellow;
+}
+.blue-box
+{
+    background-color: blue;
+}

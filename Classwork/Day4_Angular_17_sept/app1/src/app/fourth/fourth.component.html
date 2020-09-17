@@ -1,0 +1,12 @@
+<p>fourth works!</p>
+<!-- class binding -->
+<div [class.green-box]="boytype == 1"
+[class.red-box]="boytype == 2"
+[class.blue-box]="boytype == 3"
+[class.yellow-box]="boytype == 4" class="box">
+</div>
+
+<button (click)="changeColor(1)"> green </button>
+<button (click)="changeColor(2)"> red </button>
+<button (click)="changeColor(3)"> blue </button>
+<button (click)="changeColor(4)"> yellow </button>
