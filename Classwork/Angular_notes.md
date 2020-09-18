@@ -200,7 +200,7 @@ export class AppModule {}
 <hr>
 
 1. In angular,component represents a screen (page) or part of page 
-2. angular application development is a component 
+2. angular application development is a component or module based
 3. contains files
  - .html
  - .ts
@@ -211,16 +211,18 @@ export class AppModule {}
   - 1. step- create a class and call a decorator @component()
       -decorator accepts a metadata
        
-       1. selector
+       1. **selector**
         - used to load the component in a parent component
         - use it as a tag
         - e.g.
         - \<app-root>\</app-root>  
-       2. templateUrl
+       2. **templateUrl**
        - used to attach the view (html) which is the screen design
        - use it for designing the component uI
        3. styleUrls:
        - used to attach the style on the html loaded in the component
+
+- 2. step- Register the component in AppModule's declarations array
 
 
 ```ts
@@ -234,10 +236,12 @@ export class AppComponent {
 }
 ```
 
-    - 2. step- Register the component in AppModule's declarations array
+    
+![binding](sept17_1.png)
 
 
 ### binding 
+
 
 - attaching one part to another
 - types 
@@ -271,13 +275,36 @@ export class AppComponent {
            [style.background-color]="color" > </div>
         ```
    ```ts
-   export class SecondComponent implements OnInit {
-  color = 'green'
-  size = 100
-  
-    }
-
+       export class SecondComponent implements OnInit {
+      color = 'green'
+      size = 100}
    ```
-     - 3. **Class binding**
 
-    - 4. **Event bindiing** 
+
+  - 3. **Class binding**
+
+ - 4. **Event bindiing** 
+
+### directive 
+
+- feature which directs the code to process the data
+- types
+ - 1. attribute directive
+   2. positional directive
+    - syntax for pd
+       *<directive>=""
+      - 1.  **Ng For**
+      - used to iterate over an array inside the html 
+         ```html
+          <div class="employee" *ngFor="let employee of employees">
+          <div> Name : {{employee['name']}}</div>
+            <div> id : {{employee['id']}}</div>
+            <div> job : {{employee['job']}}</div>
+            <div> department : {{employee['department']}}</div>
+            <div> salary : {{employee['salary']}}</div>
+            <hr>
+            </div>
+      ```
+
+    - 2. **Ng If**
+    - 3. **Ng Switch**

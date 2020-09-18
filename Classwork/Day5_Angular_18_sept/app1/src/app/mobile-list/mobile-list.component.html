@@ -1,0 +1,30 @@
+<h1>list of mobiles</h1>
+
+
+
+<table class="table table-bordered"> 
+   
+    <thead>
+      <tr>
+          <th> Sr.No</th>
+          <th> Id</th>
+          <th style="width: 150px;"> Model </th>
+          <th style="width: 150px;">Company</th>
+          <th>Price</th>
+          <th style="width: 150px;">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+<tr *ngFor="let mobile of mobiles; let i = index">
+    <td>{{i+1}}</td>
+    <td> {{mobile['id']}} </td>
+    <td> {{mobile['model']}} </td>
+    <td> {{mobile['company']}} </td>
+    <td> {{mobile['price']}} </td>
+    <td> <button (click)="onEdit(mobile)" style="margin: 2px;" class="btn btn-outline-success btn-sm">edit</button>
+        <button  (click)="onDelete(mobile,index)" class="btn btn-outline-danger">delete</button>
+           </td>
+</tr>
+    </tbody>
+</table>

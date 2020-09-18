@@ -1,0 +1,10 @@
+.car-details
+{
+    width: 200px;
+    display: inline-block;
+    background-color: midnightblue;
+    margin: 10px;
+    border: 1px black solid;
+    color: white;
+box-shadow: 5px 1px 3px 3px rgb(72, 148, 129);
+}

@@ -1,0 +1,11 @@
+.employee
+{
+    width: 200px;
+    padding: 20px;
+    border: 1px black solid;
+    background-color: lightgreen;
+    display: inline-block;
+    box-shadow: 2px 2px 3px 3px midnightblue;
+    margin: 10px;
+   
+}

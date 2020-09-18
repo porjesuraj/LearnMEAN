@@ -1,0 +1,48 @@
+<p>car-list works!</p>
+
+
+<div *ngFor="let car of cars" class="car-details">
+    <div>car id  : {{car['id']}}  </div>
+    <div>car model  : {{car['model']}}  </div>
+    <div>car company  : {{car['company']}}  </div>
+    <div>car price : {{car['price']}}  </div>
+    <div>car color  : {{car['color']}}  </div>
+
+</div>
+<hr>
+
+<ul>
+    <li *ngFor="let car of cars"> 
+    <div>car id  : {{car['id']}}  </div>
+    <div>car model  : {{car['model']}}  </div>
+    <div>car company  : {{car['company']}}  </div>
+    <div>car price : {{car['price']}}  </div>
+    <div>car color  : {{car['color']}}  </div>
+</li>
+</ul>
+
+
+<hr>
+
+<table border="1">
+    <thead>
+<tr>
+    <th> ID</th>
+    <th>Model</th>
+    <th>Company</th>
+    <th>Price</th>
+    <th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let car of cars">
+    
+        <td>{{car['id']}}  </td>
+        <td>{{car['model']}}  </td>
+        <td> {{car['company']}}  </td>
+        <td> {{car['price']}}  </td>
+        <td> {{car['color']}}  </td>
+   
+</tr>
+</tbody>
+</table>

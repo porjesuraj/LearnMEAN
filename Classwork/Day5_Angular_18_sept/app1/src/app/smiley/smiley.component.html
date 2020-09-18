@@ -1,0 +1,25 @@
+<h2>Smiley faces
+</h2>
+<!-- <img  *ngIf="face == 'happy'"  src="assets/happy.png" alt="">
+<img  *ngIf="face == 'neutral'"  src="assets/neutral.png" alt="">
+<img  *ngIf="face == 'puzzled'"  src="assets/puzzled.png" alt="">
+<img  *ngIf="face == 'sad'"  src="assets/sad.png" alt="">
+<img  *ngIf="face == 'suprised'"  src="assets/suprised.png" alt="">
+-->
+<button (click)="face = 'happy'" class="btn btn-success smiley">happy</button>
+<button (click)="face = 'neutral'" class="btn btn-primary smiley">neutral</button>
+<button (click)="face = 'puzzled'" class="btn btn-secondary smiley">puzzled</button>
+<button (click)="face = 'sad'" class="btn btn-danger smiley">sad</button>
+<button (click)="face = 'suprised'" class="btn btn-warning smiley">surprised</button>
+
+
+<div [ngSwitch]="face">
+    <img  *ngSwitchCase="'happy'"  src="assets/happy.png" alt="">
+    <img  *ngSwitchCase="'neutral'"  src="assets/neutral.png" alt="">
+    <img  *ngSwitchCase="'puzzled'"  src="assets/puzzled.png" alt="">
+    <img  *ngSwitchCase="'sad'"  src="assets/sad.png" alt="">
+    <img  *ngSwitchCase="'suprised'"  src="assets/suprised.png" alt="">
+</div>
+
+
+

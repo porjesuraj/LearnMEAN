@@ -1,0 +1,14 @@
+.visible
+{
+    display: block;
+}
+.invisible
+{
+    display: none;
+}
+.notes
+{
+    margin: 20px;
+    background-color: red
+    ;
+}
