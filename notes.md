@@ -34,7 +34,7 @@ taken out js engine outside of browser and made it a utility
 2. so now Our **webserver** here is **Express** outside the browser
 3. for database use **Mongo,MySQL**
 
-4. so on server side we use language called **Angular**
+4. so on server side we use language called **js**
   - which will build dynamic / **client side UI** for us.
 
   - so we get **MEAN**

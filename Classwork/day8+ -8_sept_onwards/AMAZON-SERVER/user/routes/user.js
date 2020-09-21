@@ -251,7 +251,7 @@ router.post('/signin', (request, response) => {
         const user = users[0]
       if(user['active'] == 1)
       {
-        const token = jwt.sign({id : user['id']},config.secret)
+        const token = jwt.sign({id : user['customer_id']},config.secret)
 
         response.send(utils.createResult(error, {
           firstName : user['firstName'],
