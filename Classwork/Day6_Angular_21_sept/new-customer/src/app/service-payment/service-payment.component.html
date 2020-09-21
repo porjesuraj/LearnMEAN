@@ -1,0 +1,63 @@
+<h1>Service Payment</h1>
+
+<button (click)="loadPayment()" class="btn btn-success"> load payments</button>
+<table class="table table-bordered">
+<thead>
+    <tr>
+        <th>Sr.No</th>
+        <th>Customer id</th>
+        <th>customer name</th>
+        <th> contact</th>
+        <th> email</th>
+        <th>invoice id</th>
+        <th>total Bill</th>
+        <th>created On</th>
+        <th>Action</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let payment of payments; let index = index">
+      <!-- <td>{{index + 1}} </td>
+      <td>{{payment['c.customer_id']}}</td>
+      <td>{{payment['c.firstName']['c.lastName']}}</td>
+       <td>{{payment['c.contact']}}</td>
+      <td>{{payment['c.email']}}</td>
+      <td>{{payment['i.invoice_id']}}</td>
+      <td>{{payment['i.totalBill']}}</td>
+      <td>{{payment['i.createdOn']}}</td>    -->
+
+      <td>{{index + 1}} </td>
+      <td>{{payment['customer_id']}}</td>
+      <td>{{payment['firstName']['c.lastName']}}</td>
+       <td>{{payment['contact']}}</td>
+      <td>{{payment['email']}}</td>
+      <td>{{payment['invoice_id']}}</td>
+      <td>{{payment['totalBill']}}</td>
+      <td>{{payment['createdOn']}}</td>  
+      <td>
+          <button (click)="onPayment()" class="btn btn-success"> pay now </button>
+         
+      </td>
+    </tr>
+</tbody>
+
+</table>
+
+
+<!-- customer_id": 1,
+            "customer name": "surajporje",
+            "contact": "9881327553",
+            "email": "testprojectdac@gmail.com",
+            "invoice_id": 1,
+            "totalBill": 1000,
+            "createdOn": "2020-09-20T12:25:58.000Z" -->
+
+            
+           <!--  <td>{{index + 1}} </td>
+            <td>{{payment['customer_id']}}</td>
+            <td>{{payment['firstName']['c.lastName']}}</td>
+             <td>{{payment['contact']}}</td>
+            <td>{{payment['email']}}</td>
+            <td>{{payment['invoice_id']}}</td>
+            <td>{{payment['totalBill']}}</td>
+            <td>{{payment['createdOn']}}</td>    -->

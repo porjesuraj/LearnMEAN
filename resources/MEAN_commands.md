@@ -178,3 +178,25 @@ sudo chmod a+rwx "Path of directoy which contain angular apps"
 ```bash
 sudo chown -R username  /home/sunbeam/App1/my-app
 ```
+###  to skip git init
+```bash 
+--skipGit=true|false	;
+or 
+-g=false;
+When true, does not initialize a git repository.
+
+Default: false
+
+Aliases: -g
+
+```
+### The prefix to apply to generated selectors for the initial project.
+```bash
+--prefix=prefix	
+Default: app
+
+Aliases: -p
+
+```
+
+

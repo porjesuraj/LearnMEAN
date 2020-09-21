@@ -629,3 +629,77 @@ It is a set of tools that significantly simplifies SPA development.
    - Thus, it seems that you’re dealing with a desktop application rather than with a web page.
 
 - So, Single Page Application built in AngularJS is quick to build and easy to use, though it possesses some cons as well as pros.
+
+
+### NgModel DIRECTIVE
+- Creates a FormControl instance from a domain model and binds it to a form control element.
+
+
+- Description
+ - The **FormControl** instance tracks the value, user interaction, and validation status of the control and keeps the view synced with the model. If used within a parent form, the directive also registers itself with the form as a child control.
+ - This directive is used by itself or as part of a larger form.
+  Use the ngModel selector to activate  it.
+
+- It accepts a domain model as an optional Input.
+1.  If you have a one-way binding to ngModel with [] syntax, changing the value of the domain model in the component class sets the value in the view. 
+2. If you have a two-way binding with [()] syntax (also known as 'banana-box syntax'), the value in the UI always syncs back to the domain model in your class.
+
+To inspect the properties of the associated FormControl (like validity state), export the directive into a local template variable using ngModel as the key (ex: $myVar="ngModel"). 
+
+
+- When using the ngModel within <form> tags, you'll also need to supply a name attribute so that the control can be registered with the parent form under that name.
+
+- In the context of a parent form, it's often unnecessary to include one-way or two-way binding, as the parent form syncs the value for you. 
+- You access its properties by exporting it into a local template variable using ngForm such as (#f="ngForm"). Use the variable where needed on form submission.
+
+
+Using ngModel within a form
+The following example shows controls using ngModel within a form:
+
+```ts
+import {Component} from '@angular/core';
+import {NgForm} from '@angular/forms';
+
+@Component({
+  selector: 'example-app',
+  template: `
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <input name="first" ngModel required #first="ngModel">
+      <input name="last" ngModel>
+      <button>Submit</button>
+    </form>
+
+    <p>First name value: {{ first.value }}</p>
+    <p>First name valid: {{ first.valid }}</p>
+    <p>Form value: {{ f.value | json }}</p>
+    <p>Form valid: {{ f.valid }}</p>
+  `,
+})
+export class SimpleFormComp {
+  onSubmit(f: NgForm) {
+    console.log(f.value);  // { first: '', last: '' }
+    console.log(f.valid);  // false
+  }
+}
+```
+
+### HttpClient performs 
+
+ - A.  HTTP requests.
+-  B. This service is available as an injectable class, with methods to perform HTTP requests.
+-  C. Each request method has multiple signatures, and the return type varies based on the      signature that    is called .
+-  D.all of the above
+-  Ans . D
+
+### mcq  
+- Q.Most front-end applications need to communicate with a server over the HTTP protocol, in order to download or upload data and access other back-end services.
+ - Angular provides a simplified client HTTP API for Angular applications, 
+the HttpClient service class in @angular/common/http.
+The HTTP client service offers which of the following features:
+
+- A. The ability to request typed response objects.
+- B. Streamlined error handling.
+- C. Testability features.
+- D. Request and response interception.
+
+- Ans  : all of the above
