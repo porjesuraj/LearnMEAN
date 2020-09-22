@@ -1,0 +1,24 @@
+<div class="container">
+  
+    <a class="btn btn-link" routerLink="/product-list">Product List</a>
+    <a class="btn btn-link" routerLink="/product-add">Add Product</a>
+    <a class="btn btn-link" routerLink="/product-add">Add Product</a>
+  
+    <a class="btn btn-link" routerLink="/category-list">Category List</a>
+  
+    <a class="btn btn-link" routerLink="/brand-list">Brand List</a>
+  
+    <a class="btn btn-link" routerLink="/my-orders">My Orders</a>
+    <a class="btn btn-link" routerLink="/about-us">About Us</a>
+  
+  <hr>
+    <button (click)="goToPage(1)"class="btn btn-success">Product List</button>
+    <button (click)="goToPage(2)"style="margin-left: 10px;" class="btn btn-success">Add Product</button>
+    
+  
+    <!-- <app-product-list></app-product-list> -->
+    <!-- <app-product-add></app-product-add> -->
+  
+    <router-outlet></router-outlet>
+  </div>
+  
