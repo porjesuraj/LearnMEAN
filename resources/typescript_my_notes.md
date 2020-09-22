@@ -703,3 +703,14 @@ The HTTP client service offers which of the following features:
 - D. Request and response interception.
 
 - Ans  : all of the above
+
+### Dependency injection (DI), are
+- A.  an important application design pattern. 
+- B. Angular  own DI framework, is typically used in the design of Angular applications to increase their efficiency and modularity.
+- C. Dependencies are services or objects that a class needs to perform its function.
+- D. it is a coding pattern in which a class asks for dependencies from external sources rather than creating them itself.
+- E. In Angular, the DI framework provides declared dependencies to a class when that class is instantiated. 
+- F. use  to make your apps flexible, efficient, and robust, as well as testable and maintainable.
+- G. All of the above 
+
+- Ans: G 
