@@ -1,9 +1,9 @@
 <div class="card">
 
-    <div class="card-header">
+    <div class="card-header box1">
         <h3>Customer Sign up</h3>
     </div>
-    <div class="card-body">
+    <div class="card-body btn-primary">
       <div class="form">
        <div class="row">
       <div class="form-group col-md-4">
@@ -24,7 +24,7 @@
 
         <div class="form-group col-md-6">
             <label for="contact"> Contact No</label>
-            <input [(ngModel)]="contact" type="tel" id="contact" class="form-control">
+            <input [(ngModel)]="contact" type="tel" id="contact" class="form-control" required>
         </div>
         <div class="form-group col-md-6">
             <label for="b_date"> BirthDate</label>
@@ -35,11 +35,11 @@
        <div class="row">
            <div class="form-group col-md-6">
                <label for="_email"> email</label>
-               <input [(ngModel)]="email" type="email" id="_email" class="form-control">
+               <input [(ngModel)]="email" type="email" id="_email" class="form-control" required>
            </div>
            <div class="form-group col-md-6">
             <label for="_pass"> password</label>
-            <input [(ngModel)]="password" type="password" id="_pass" class="form-control">
+            <input [(ngModel)]="password" type="password" id="_pass" class="form-control" required>
         </div>
        </div>
 

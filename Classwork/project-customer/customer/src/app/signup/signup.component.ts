@@ -37,6 +37,7 @@ export class SignupComponent implements OnInit {
       }
       else{
         console.log(`error : ${response['error']}`)
+        alert(`please fill form with all required fields`)
       }
      })
 
