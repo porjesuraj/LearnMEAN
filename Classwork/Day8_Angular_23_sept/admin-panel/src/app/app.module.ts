@@ -16,6 +16,7 @@ import {FormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http'
 import { OrderService } from './order.service';
 import { ProductService } from './product-list/product.service';
+import { ProductAddComponent } from './product-add/product-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { ProductService } from './product-list/product.service';
     ProductListComponent,
     OrderListComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,

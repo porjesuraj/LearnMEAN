@@ -16,7 +16,7 @@ const categoryROuter = require('./admin/routes/category')
 const orderROuter = require('./admin/routes/order')
 const productROuter = require('./admin/routes/product')
 const reviewROuter = require('./admin/routes/review')
-
+const userRouter = require('./admin/routes/user')
 
 
 const { request, response } = require('express')
@@ -101,7 +101,7 @@ app.use('/category',categoryROuter)
 app.use('/order',orderROuter)
 app.use('/product',productROuter)
 app.use('/review',reviewROuter)
-
+app.use('/user',userRouter)
 
 //default router
 

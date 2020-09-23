@@ -49,25 +49,28 @@ const router = express.Router()
 
 
 
-router.get('/profile', (request, response) => {
-    //console.log(config.secret)
-    
-    
-      const statement = `select firstName, lastName, email, phone from admin where id = ${request.userId}`;
-      db.query(statement, (error, users) => {
-        if (error) {
-          response.send({status: 'error', error: error})
-        } else {
-          if (users.length == 0) {
-            response.send({status: 'error', error: 'user does not exist'})
-          } else {
-            const user = users[0]
-            response.send(utils.createResult(error, user))
-          }
-        }
-      })
-    
+router.get('/', (request, response) => {
+  const statement = `select id, firstName, lastName, address, city, country, zip, phone, email, active from user`
+  db.query(statement, (error, data) => {
+    response.send(utils.createResult(error, data))
   })
+})
+
+router.get('/activate/:token', (request, response) => {
+  const {token} = request.params
+
+  // activate the user
+  // reset the activation token
+  const statement = `update user set active = 1, activationToken = '' where activationToken = '${token}'`
+  db.query(statement, (error, data) => {
+
+    const htmlPath = path.join(__dirname, '/../templates/activation_result.html')
+    const body = '' + fs.readFileSync(htmlPath)
+    response.header('Content-Type', 'text/html')
+    response.send(body)
+  })
+
+})
 // ----------------------------------------------------
 
 

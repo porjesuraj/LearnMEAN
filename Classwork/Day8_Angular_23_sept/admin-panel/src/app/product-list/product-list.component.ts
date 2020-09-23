@@ -1,5 +1,6 @@
-import { ProductService } from './product.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductService } from './product.service';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class ProductListComponent implements OnInit {
   products = []
 
   constructor(
+    private router: Router,
     private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class ProductListComponent implements OnInit {
 
   toggleActiveStatus(product) {
     this.productService
-    .toggleActiveStatus(product)
+      .toggleActivateStatus(product)
       .subscribe(response => {
         if (response['status'] == 'success') {
           this.loadProducts()
@@ -42,5 +44,7 @@ export class ProductListComponent implements OnInit {
       })
   }
 
+  onEdit(product) {
+    this.router.navigate(['/product-add'], {queryParams: {id: product['id']}})
+  }
 }
-         
