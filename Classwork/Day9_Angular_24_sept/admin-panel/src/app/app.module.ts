@@ -13,7 +13,8 @@ import{HttpClientModule} from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { ProductAddComponent } from './product-add/product-add.component'
+import { ProductAddComponent } from './product-add/product-add.component';
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,12 +1,17 @@
+import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-product-add',
   templateUrl: './product-add.component.html',
   styleUrls: ['./product-add.component.css']
 })
-export class ProductAddComponent implements OnInit {
+
+
+export class ProductAddComponent  {
 
   categories = []
   brands = []
@@ -17,18 +22,5 @@ export class ProductAddComponent implements OnInit {
   category = 1
   brand = 1
 
-  product = null 
-
-  constructor(
-private router  : Router 
-  ) { }
-
-  ngOnInit(): void {
-
-  }
-  onUpdate()
-  {
-    
-  }
-
+  product = null
 }
