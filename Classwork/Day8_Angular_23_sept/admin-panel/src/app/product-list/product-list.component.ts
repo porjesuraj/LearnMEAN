@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductService } from './product.service';
-
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -26,6 +25,7 @@ export class ProductListComponent implements OnInit {
       .subscribe(response => {
         if (response['status'] == 'success') {
           this.products = response['data']
+          console.log(this.products)
         } else {
           console.log(response['error'])
         }
@@ -47,4 +47,14 @@ export class ProductListComponent implements OnInit {
   onEdit(product) {
     this.router.navigate(['/product-add'], {queryParams: {id: product['id']}})
   }
+
+  uploadImage(product) {
+    this.router.navigate(['/product-upload-image'], {queryParams: {id: product['id']}})
+  }
+
+  addProduct() {
+    this.router.navigate(['/product-add'])
+  }
 }
+
+            

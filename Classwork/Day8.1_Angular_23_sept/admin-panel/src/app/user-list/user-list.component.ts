@@ -9,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class UserListComponent implements OnInit {
  
   users = []
-  constructor(private userService : UserService) { }
+
+  constructor(
+    private userService: UserService) { }
 
   ngOnInit(): void {
     this.loadUsers()
@@ -25,6 +27,18 @@ export class UserListComponent implements OnInit {
           console.log(response['error'])
         }
       })
+  }
+
+  toggleActive(user) {
+    this.userService
+      .toggleActiveStatus(user)
+      .subscribe(response => {
+        if (response['status'] == 'success') {
+          this.loadUsers()
+        } else {
+          console.log(response['error'])
+        }
+      }) 
   }
 
 }

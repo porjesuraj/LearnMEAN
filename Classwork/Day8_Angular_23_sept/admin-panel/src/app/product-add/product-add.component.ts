@@ -1,8 +1,9 @@
-
+import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
-import { ProductService } from '../product-list/product.service';
+import { CategoryService } from '../category.service';
+import { BrandService } from '../brand.service';
 
 @Component({
   selector: 'app-product-add',
@@ -11,14 +12,21 @@ import { ProductService } from '../product-list/product.service';
 })
 export class ProductAddComponent implements OnInit {
 
+  categories = []
+  brands = []
+
   title = ''
   description = ''
   price = 0
+  category = 1
+  brand = 1
 
-  product = {}
+  product = null
 
   constructor(
     private router: Router,
+    private categoryService: CategoryService,
+    private brandService: BrandService,
     private activatedRoute: ActivatedRoute,
     private productService: ProductService) { }
 
@@ -36,20 +44,61 @@ export class ProductAddComponent implements OnInit {
               this.title = this.product['title']
               this.description = this.product['description']
               this.price = this.product['price']
+              this.category = this.product['category']['id']
+              this.brand = this.product['brand']['id']
             }
           }
         })
     }
+
+    this.loadBrands()
+    this.loadCategories()
   }
 
-  onUpdate() {
-    this.productService
-      .updateProduct(this.product['id'], this.title, this.description, this.price)
+  loadCategories() {
+    this.categoryService
+      .getCategories()
       .subscribe(response => {
         if (response['status'] == 'success') {
-          this.router.navigate(['/product-list'])
+          this.categories = response['data']
         }
       })
   }
 
+  loadBrands() {
+    this.brandService
+      .getBrands()
+      .subscribe(response => {
+        if (response['status'] == 'success') {
+          this.brands = response['data']
+        }
+      })
+  }
+
+  onUpdate() {
+
+    if (this.product) {
+      // edit
+      this.productService
+        .updateProduct(this.product['id'], this.title, this.description, this.price, this.category, this.brand)
+        .subscribe(response => {
+          if (response['status'] == 'success') {
+            this.router.navigate(['/product-list'])
+          }
+        })
+    } else {
+      // insert
+      this.productService
+        .insertProduct(this.title, this.description, this.price, this.category, this.brand)
+        .subscribe(response => {
+          if (response['status'] == 'success') {
+            this.router.navigate(['/product-list'])
+          }
+        })
+    }
+
+  }
+
 }
+
+            

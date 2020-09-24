@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'admin-panel';
+      title : 'admin-panel'
+  constructor(
+    private router: Router) {
+  }
+  
+  onLogout() {
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('firstName')
+    sessionStorage.removeItem('lastName')
+
+    this.router.navigate(['/login'])
+  }
 }

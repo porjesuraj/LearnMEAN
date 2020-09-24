@@ -1,3 +1,5 @@
+import { CategoryService } from './category.service';
+import { BrandService } from './brand.service';
 import { UserService } from './user.service';
 import { AdminService } from './admin.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,8 +17,9 @@ import { SigninComponent } from './signin/signin.component';
 import {FormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http'
 import { OrderService } from './order.service';
-import { ProductService } from './product-list/product.service';
+import { ProductService } from './product.service';
 import { ProductAddComponent } from './product-add/product-add.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,8 @@ import { ProductAddComponent } from './product-add/product-add.component';
     OrderListComponent,
     SignupComponent,
     SigninComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    UploadImageComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { ProductAddComponent } from './product-add/product-add.component';
     AdminService,
     OrderService,
     ProductService,
-    UserService
+    UserService,
+    BrandService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

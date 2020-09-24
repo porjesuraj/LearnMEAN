@@ -49,7 +49,7 @@ const router = express.Router()
 
 
 
-router.get('/profile', (request, response) => {
+router.get('/', (request, response) => {
     //console.log(config.secret)
     
     

@@ -13,36 +13,34 @@ export class UserListComponent implements OnInit {
   constructor(
     private userService: UserService) { }
 
-  
-    ngOnInit(): void {
-      this.loadUsers()
-    }
-  
-    loadUsers() {
-      this.userService
-        .getUsers()
-        .subscribe(response => {
-          if (response['status'] == 'success') {
-            this.users = response['data']
-          } else {
-            console.log(response['error'])
-          }
-        })
-    }
-  
-    toggleActive(user) {
-      this.userService
-        .toggleActiveStatus(user)
-        .subscribe(response => {
-          if (response['status'] == 'success') {
-            this.loadUsers()
-          } else {
-            console.log(response['error'])
-          }
-        }) 
-    }
-  
+  ngOnInit(): void {
+    this.loadUsers()
   }
-  
-              
-  
+
+  loadUsers() {
+    this.userService
+      .getUsers()
+      .subscribe(response => {
+        if (response['status'] == 'success') {
+          this.users = response['data']
+        } else {
+          console.log(response['error'])
+        }
+      })
+  }
+
+  toggleActive(user) {
+    this.userService
+      .toggleActiveStatus(user)
+      .subscribe(response => {
+        if (response['status'] == 'success') {
+          this.loadUsers()
+        } else {
+          console.log(response['error'])
+        }
+      }) 
+  }
+
+}
+
+            

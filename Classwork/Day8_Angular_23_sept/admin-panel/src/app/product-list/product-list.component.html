@@ -1,5 +1,6 @@
 <div class="card">
   <div class="card-header">
+    <button (click)="addProduct()" class="btn btn-success btn-sm float-right">Add</button>
     <h4>Product List</h4>
   </div>
   <div class="card-body">
@@ -20,7 +21,8 @@
         <tr *ngFor="let product of products; let index = index">
           <td>{{index + 1}}</td>
           <td>
-            <img class="product-image" src="http://localhost:3000/product/image/{{product['image']}}" alt="">
+            <img *ngIf="product['image']" class="product-image" src="http://localhost:3000/product/image/{{product['image']}}" alt="">
+            <button (click)="uploadImage(product)" *ngIf="!product['image']" class="btn btn-sm btn-info">upload</button>
           </td>
           <td>{{product['title']}}</td>
           <td>{{product['price']}}</td>
@@ -42,3 +44,5 @@
     </table>
   </div>
 </div>
+
+            
