@@ -1,5 +1,6 @@
-import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -7,42 +8,53 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-     products = []
-  constructor(private productService : ProductService) { }
+
+  products = []
+
+  constructor(
+    private router: Router,
+    private productService: ProductService) { }
 
   ngOnInit(): void {
     this.loadProducts()
   }
 
-  loadProducts()
-  {
+  loadProducts() {
     this.productService
-    .loadProducts()
-    .subscribe(response => {
-      if(response['status'] == 'success')
-      {
-        this.products = response['data']
-      }
-      else
-      {
-        console.log(`error = ${response['error']}`)
-      }
-    })
-
+      .getProducts()
+      .subscribe(response => {
+        if (response['status'] == 'success') {
+          this.products = response['data']
+          console.log(this.products)
+        } else {
+          console.log(response['error'])
+        }
+      })
   }
-  toggleActive(product)
-  {
+
+  toggleActiveStatus(product) {
     this.productService
-    .toggleSuspend(product)
-    .subscribe(response => {
-      if(response['status'] == 'success')
-      {
-        this.loadProducts()
-      }
-      else
-      {
-        console.log(`error = ${response['error']}`)
-      }
-    })
+      .toggleActivateStatus(product)
+      .subscribe(response => {
+        if (response['status'] == 'success') {
+          this.loadProducts()
+        } else {
+          console.log(response['error'])
+        }
+      })
+  }
+
+  onEdit(product) {
+    this.router.navigate(['/product-add'], {queryParams: {id: product['id']}})
+  }
+
+  uploadImage(product) {
+    this.router.navigate(['/product-upload-image'], {queryParams: {id: product['id']}})
+  }
+
+  addProduct() {
+    this.router.navigate(['/product-add'])
   }
 }
+
+            

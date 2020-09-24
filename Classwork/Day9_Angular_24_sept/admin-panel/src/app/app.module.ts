@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ProductService } from './product.service';
 import { UserService } from './user-list/user.service';
 import { AdminService } from './admin.service';
@@ -11,14 +12,16 @@ import {FormsModule} from '@angular/forms'
 import{HttpClientModule} from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { UserListComponent } from './user-list/user-list.component';
-import { ProductListComponent } from './product-list/product-list.component'
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductAddComponent } from './product-add/product-add.component'
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
     UserListComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
