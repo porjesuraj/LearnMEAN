@@ -86,6 +86,28 @@ router.put('/toggle-active/:id', (request, response) => {
 
 // ---------------------------------------
 //                  DELETE
+
+router.delete('/:id', (request, response) => {
+  const {id} = request.params
+  
+  const statement = `delete from user where id = ${id}`
+  db.query(statement, (error, data) => {
+    response.send(utils.createResult(error, data))
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ---------------------------------------
 
 
