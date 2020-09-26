@@ -1,60 +1,60 @@
+
+<!--  id | title  | description       | category | price  | brand | image     -->                        
 <div class="card">
-  <div class="card-header">
-    <h4> Product</h4>
-  </div>
-  <div class="card-body">
-    <div class="form">
-
+    <div class="card-header">
+        <h4> {{product ? 'Update' : 'Add'}} Product</h4>
+    </div>
+    <div class="card-body">
+      <div class="form">
       <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="">Title</label>
-            <input [(ngModel)]="title" type="text" class="form-control">
-          </div>
+        <div class="form-group col-md-6">
+       <label for="">Title</label>
+       <input [(ngModel)]="title" type="text" class="form-control">
         </div>
+       
+             <div class="form-group col-md-6">
+                <label for="">price</label>
+                <input [(ngModel)]="price" type="number" class="form-control">
+                 </div>
+       </div>        
+       
+       <div class="row">
+         <div class="form-group col-md-6">
+           <label for=""> Category</label>
+           <select [(ngModel)]="_category" class="form-control" >
+             <option [value]="category['id']"  *ngFor="let category of categories"> {{category['title']}}</option>
+           </select>
+         </div>
+         <div class="form-group col-md-6">
 
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="">Price</label>
-            <input [(ngModel)]="price" type="number" class="form-control">
-          </div>
-        </div>
-      </div>
-
-      
-      <div class="row">
-        <div class="col-md-6">
-          <label for="">Category</label>
-          <select [(ngModel)]="category" class="form-control">
-            <option [value]="category['id']" *ngFor="let category of categories">{{category['title']}}</option>
+          <label for=""> Brand</label>
+          <select [(ngModel)]="_brand"  class="form-control" >
+            <option [value]="brand['id']"  *ngFor="let brand of brands">{{brand['title']}}</option>
           </select>
-        </div>
+         </div>
+       </div>
 
-        <div class="col-md-6">
-          <label for="">Brand</label>
-          <select [(ngModel)]="brand" class="form-control">
-            <option [value]="brand['id']" *ngFor="let brand of brands">{{brand['title']}}</option>
-          </select>
-        </div>
+
+
+                 <div class="form-group">
+                    <label for="">description</label>
+                   <textarea [(ngModel)]="description" cols="30" rows="5" class="form-control"></textarea>
+                 </div>
+                 <div class="form-group">
+                 <button (click)="onSave()" class="btn btn-success">{{product ? 'Update' : 'Add'}}</button>
+        
+                 <button (click)="onCancel()" style="margin-left: 10px;" class="btn btn-warning">Cancel</button>
+
+                 <button *ngIf="product" (click)="onUploadImage()" style="margin-left: 10px;" class="btn btn-info">Upload  Image</button>
+
+                        </div>
+            
+          
+
+
+
+
       </div>
-
-      <div class="row" style="margin-top: 20px;">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label for="">Description</label>
-            <textarea [(ngModel)]="description" rows="10" class="form-control"></textarea>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <button  class="btn btn-success"></button>
-        <a style="margin-left: 10px;" routerLink="/product-list" class="btn btn-danger">Cancel</a>
-      </div>
-
 
     </div>
-  </div>
 </div>
-
-            

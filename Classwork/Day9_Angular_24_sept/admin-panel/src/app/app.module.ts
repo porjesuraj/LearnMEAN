@@ -1,5 +1,7 @@
-import { Router } from '@angular/router';
+import { CategoryService } from './product-add/category.service';
+import { BrandService } from './product-add/brand.service';
 import { ProductService } from './product.service';
+import { Router } from '@angular/router';
 import { UserService } from './user-list/user.service';
 import { AdminService } from './admin.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +16,10 @@ import { SignupComponent } from './signup/signup.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAddComponent } from './product-add/product-add.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +28,10 @@ import { ProductAddComponent } from './product-add/product-add.component';
     SignupComponent,
     UserListComponent,
     ProductListComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    DashboardComponent,
+    UploadImageComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -33,7 +42,9 @@ import { ProductAddComponent } from './product-add/product-add.component';
   providers: [
     AdminService,
     UserService,
-    ProductService
+    ProductService,
+    BrandService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

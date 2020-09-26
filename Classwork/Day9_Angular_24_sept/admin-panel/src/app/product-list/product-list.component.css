@@ -1,8 +1,13 @@
 .product-image
 {
-    width: 60px;
-    height: 30px;
+    height: 50px;
 }
-.product-image:hover{
+
+.product-image:hover
+{
     transform: scale(2);
+}
+.add
+{
+    float: right;
 }

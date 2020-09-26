@@ -898,3 +898,10 @@ Middleware functions are functions that have access to the request object (req),
 - C. Using include() function
 - D. Using app.use() function
 - Ans  A. using require() function
+
+113. 7. Which Angular directive is used to binds the value of HTML controls (input, select, textarea) to application data?
+- A. ng-cloak
+- B. ng-bind
+- C.  ng-model
+- D. ng-blur
+- Answer D. ng-model

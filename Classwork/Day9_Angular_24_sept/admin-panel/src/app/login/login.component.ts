@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
 import { AdminService } from './../admin.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,8 @@ export class LoginComponent implements OnInit {
   email = ''
   password = ''
 
-  constructor(private adminService : AdminService) { }
+  constructor(private adminService : AdminService,
+              private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -26,13 +29,12 @@ export class LoginComponent implements OnInit {
            let data = response['data']
            alert(`welcome ${data['firstName']} ${data['lastName']}`)
            //localStorage
-           localStorage['firstName'] = data['firstName']
-           localStorage['lastName'] = data['lastName']
-           localStorage['token'] = data['token']
+           
           //sessionStorage
            sessionStorage['firstName'] = data['firstName']
            sessionStorage['lastName'] = data['lastName']
            sessionStorage['token'] = data['token']
+           this.router.navigate(['/dashboard'])
          }
          else
          {

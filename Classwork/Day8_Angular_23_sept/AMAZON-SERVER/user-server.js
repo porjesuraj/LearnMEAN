@@ -1,106 +1,90 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const config = require('./config')
 const jwt = require('jsonwebtoken')
-// morgan : to keep logging entries
+const config = require('./config')
+const cors = require('cors')
+
+// morgan: for logging
 const morgan = require('morgan')
-//swagger to docuement apis
-const swaggerJsDoc = require('swagger-jsdoc')
+
+// swagger: for api documentation
+const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
 
-//routers
+// routers
 const userRouter = require('./user/routes/user')
 const orderRouter = require('./user/routes/order')
-
-const { request, response } = require('express')
-
+const productRouter = require('./user/routes/product')
+const cartRouter = require('./user/routes/cart')
 
 const app = express()
-
+app.use(cors('*'))
 app.use(bodyParser.json())
-app.use(morgan("combined"))
-//app.use(morgan("tiny"))
+app.use(morgan('combined'))
 
-
-
-
-
-
-//swagger init 
-const options = {
+// swagger init
+const swaggerOptions = {
   definition: {
-    openapi: '3.0.0', 
     info: {
-      title: 'Amazon clone user panel', // Title (required)
-      version: '1.0.0', // Version (required)
-      description : 'this is a express server applicaiton'
-    },
+      title: 'Amazon Server (User Front)',
+      version: '1.0.0',
+      description: 'This is a Express server for amazon application'
+    }
   },
-  // Path to the API docs
-  apis: ['./user/routes/*.js'],
-};
+  apis: ['./user/routes/*.js']
+}
 
-const swaggerSpec = swaggerJsDoc(options)
+const swaggerSpec = swaggerJSDoc(swaggerOptions)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use('/userApiDocs',swaggerUi.serve,swaggerUi.setup(swaggerSpec) );
+// add a middleware for getting the id from token
+function getUserId(request, response, next) {
 
+  if (request.url == '/user/signin' 
+      || request.url == '/user/signup'
+      || request.url.startsWith('/user/activate')
+      || request.url == '/logo.png'
+      || request.url.startsWith('/product/image/')
+      || request.url.startsWith('/user/forgot-password')) {
+    // do not check for token 
+    next()
+  } else {
 
-
-
-//add a middleware for getting the id from token
-function getUserId(request,response,next)
-{       
-    if(request.url == '/user/signin' 
-    || request.url == '/user/signup'
-    || request.url == '/logo.png'
-    || request.url.startsWith('/user/activate'))
-    {
-          next()
-    }
-    else
-    {
     try {
-        const token = request.headers['token']
-        const data = jwt.verify(token, config.secret)
-        //add a new key names userID with logged in user's id
-        request.userId = data['id']
-        //go to actual route
-        next()
-        
-      } catch (ex) {
-        response.status(401)
-        response.send({status: 'error', error: 'protected api user'})
-      }
+      const token = request.headers['token']
+      const data = jwt.verify(token, config.secret)
 
+      // add a new key named userId with logged in user's id
+      request.userId = data['id']
+
+      // go to the actual route
+      next()
+      
+    } catch (ex) {
+      response.status(401)
+      response.send({status: 'error', error: 'protected api'})
     }
-
-
+  }
 }
 
 app.use(getUserId)
-//app.use((request,response,next) => {
-//    
-//})
+
+// required to send the static files in the directory named images
 app.use(express.static('images/'))
 
 // add the routes
-app.use('/user',userRouter)
-app.use('/order',orderRouter)
+app.use('/user', userRouter)
+app.use('/order', orderRouter)
+app.use('/product', productRouter)
+app.use('/cart', cartRouter)
 
-//default router
-
-app.get('/',(request,response) => {
-
-    response.send('welcome to my user side application')
+// default route
+app.get('/', (request, response) => {
+  response.send('welcome to my application')
 })
 
-
-
-
-
-
-
-
-app.listen(4000,'0.0.0.0', () => {
-    console.log(`server started on port 4000`)
+app.listen(4000, '0.0.0.0', () => {
+  console.log('server started on port 4000')
 })
+
+            

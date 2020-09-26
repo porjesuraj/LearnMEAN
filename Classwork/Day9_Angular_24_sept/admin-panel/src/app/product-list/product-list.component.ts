@@ -1,6 +1,6 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,51 +10,87 @@ import { ProductService } from '../product.service';
 export class ProductListComponent implements OnInit {
 
   products = []
-
-  constructor(
-    private router: Router,
-    private productService: ProductService) { }
+  constructor(private productService : ProductService,
+    private router : Router,
+    private activatedRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.loadProducts()
+    this.getProducts()
+    
+   
   }
-
-  loadProducts() {
-    this.productService
-      .getProducts()
-      .subscribe(response => {
-        if (response['status'] == 'success') {
-          this.products = response['data']
-          console.log(this.products)
-        } else {
-          console.log(response['error'])
-        }
-      })
-  }
-
-  toggleActiveStatus(product) {
-    this.productService
-      .toggleActivateStatus(product)
-      .subscribe(response => {
-        if (response['status'] == 'success') {
-          this.loadProducts()
-        } else {
-          console.log(response['error'])
-        }
-      })
-  }
-
-  onEdit(product) {
-    this.router.navigate(['/product-add'], {queryParams: {id: product['id']}})
-  }
-
-  uploadImage(product) {
-    this.router.navigate(['/product-upload-image'], {queryParams: {id: product['id']}})
-  }
-
-  addProduct() {
-    this.router.navigate(['/product-add'])
-  }
+ 
+getProducts()
+{
+  this.productService
+  .getProducts()
+  .subscribe(response =>{
+    if(response['status'] == 'success')
+    {
+      this.products = response['data'] 
+    }
+    else
+    {
+      console.log(`error : response['error']`)
+    }
+  })
 }
 
-            
+
+
+  toggleActive(product)
+  {
+    this.productService
+    .toggleAcitve(product)
+    .subscribe(response => {
+      if(response['status'] == 'success')
+      {
+        this.getProducts()
+      }
+      else
+      {
+        console.log(`error = ${response['error']}`)
+      }
+    })
+  }
+
+  productAdd()
+  {
+      this.router.navigate(['/product-add'])
+  }
+  onEdit(product)
+  {
+    this.router.navigate(['/product-add'],{queryParams : {id : product['id']}})
+  }
+  onDelete(id)
+  {
+    this.productService
+    .deleteProduct(id)
+    .subscribe(response => {
+      if(response['status'] == 'success')
+      {
+       this.getProducts()
+      }
+      else
+      {
+        console.log(response['error'])
+      }
+    })
+  }
+  uploadImage(product)
+  { 
+    this.router.navigate(['/product-upload-image'],{queryParams : {id : product['id']}})
+
+  }
+  onUpdateImage(product)
+  {
+
+    this.router.navigate(['/product-upload-image'],{queryParams : {id : product['id']}})
+
+  }
+
+
+
+
+
+}

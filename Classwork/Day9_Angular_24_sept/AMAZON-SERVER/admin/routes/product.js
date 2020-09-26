@@ -147,15 +147,16 @@ router.post('/create', (request, response) => {
 
 router.put('/:id', (request, response) => {
   const {id} = request.params
-  // const {title, description, category, price, brand} = request.body
-  const {title, description, price} = request.body
+   const {title, description, category, price, brand} = request.body
+  //const {title, description, price,} = request.body
 
-  // brand = '${brand}'
-  // category = '${category}',
+  
   const statement = `update product set 
       title = '${title}',
       description = '${description}',
-      price = '${price}'
+      price = '${price}',
+      brand = '${brand}',
+      category = '${category}'
   where id = ${id}`
   db.query(statement, (error, data) => {
     response.send(utils.createResult(error, data))

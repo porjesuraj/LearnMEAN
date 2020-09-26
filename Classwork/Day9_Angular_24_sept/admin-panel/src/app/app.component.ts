@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'admin-panel';
+
+  logout()
+  {
+    /* sessionStorage['token'] = ''
+    sessionStorage['firstName'] = ''
+    sessionStorage['lastName'] = '' */
+      sessionStorage.removeItem('token')   
+sessionStorage.removeItem('firstName')
+sessionStorage.removeItem('lastName')
+
+
+  }
 }

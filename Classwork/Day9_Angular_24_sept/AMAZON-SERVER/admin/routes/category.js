@@ -36,7 +36,7 @@ const router = express.Router()
 
 
 router.get('/',(request,response) => {
-    const statement = `select * from category`;
+    const statement = `select id,title from category`;
     db.query(statement,(error,data) => {
         response.send(utils.createResult(error,data))
     })

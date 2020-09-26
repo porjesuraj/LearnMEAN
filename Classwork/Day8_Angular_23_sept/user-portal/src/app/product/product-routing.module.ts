@@ -1,11 +1,11 @@
-import { GalleryComponent } from './gallery/gallery.component';
 import { CartComponent } from './cart/cart.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GalleryComponent } from './gallery/gallery.component';
 
 const routes: Routes = [
-  {path: 'cart',component : CartComponent},
-  {path: 'gallery',component :GalleryComponent}
+  { path: 'gallery', component: GalleryComponent },
+  { path: 'cart', component: CartComponent },
 ];
 
 @NgModule({
@@ -13,3 +13,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class ProductRoutingModule { }
+
+            
