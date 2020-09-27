@@ -241,7 +241,7 @@ router.post('/signin', (request, response) => {
   db.query(statement, (error, users) => {
     if(error)
     {
-      response.send(utils.createError(error))
+      response.send(utils.createError('core error'))
     } else  if(users.length == 0)
     {
       response.send(utils.createError('user not found'))

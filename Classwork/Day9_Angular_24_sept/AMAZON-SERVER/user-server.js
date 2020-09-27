@@ -7,16 +7,18 @@ const morgan = require('morgan')
 //swagger to docuement apis
 const swaggerJsDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
+const cors = require('cors')
 
 //routers
 const userRouter = require('./user/routes/user')
 const orderRouter = require('./user/routes/order')
-
+const productRouter = require('./user/routes/product')
+const cartRouter = require('./user/routes/cart')
 const { request, response } = require('express')
 
 
 const app = express()
-
+app.use(cors())
 app.use(bodyParser.json())
 app.use(morgan("combined"))
 //app.use(morgan("tiny"))
@@ -52,8 +54,9 @@ function getUserId(request,response,next)
 {       
     if(request.url == '/user/signin' 
     || request.url == '/user/signup'
-    || request.url == '/logo.png'
-    || request.url.startsWith('/user/activate'))
+    || request.url == '/'
+    || request.url.startsWith('/user/activate')
+    || request.url.startsWith('/product/image'))
     {
           next()
     }
@@ -86,18 +89,14 @@ app.use(express.static('images/'))
 // add the routes
 app.use('/user',userRouter)
 app.use('/order',orderRouter)
-
+app.use('/product',productRouter)
+app.use('/cart',cartRouter)
 //default router
 
 app.get('/',(request,response) => {
 
     response.send('welcome to my user side application')
 })
-
-
-
-
-
 
 
 
