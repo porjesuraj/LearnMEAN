@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-body">
+       <h4>Classroom Details</h4>
+    </div>
+    <div class="card-body">
+    <table class="table table-bordered table-dark col-md-6">
+        <thead>
+            <tr>
+         <th>Serial No</th>
+         <th>Faculty Id</th>
+         <th>Faculty Name</th>
+         <th>classroom</th>
+         <th>class size</th>
+        </tr>
+        </thead>
+        <tbody>
+<tr *ngFor="let faculty of faculties; let index = index">
+    <td>{{index + 1}}</td>
+    <td>{{faculty['faculty id']}}</td>
+    <td>{{faculty['Faculty name']}}</td>
+    <td>{{faculty['classroom']}}</td>
+    <td>{{faculty['class size']}}</td>
+</tr>
+        </tbody>
+    </table>
+    </div>
+</div>

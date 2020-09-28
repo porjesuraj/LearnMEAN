@@ -18,4 +18,14 @@ export class FacultyService {
     }
     return this.httpClient.get(this.url + '/studentCount',options)
   }
+
+  loadClassroomDetails()
+  {
+    const options = {
+      headers : new HttpHeaders({
+        token : sessionStorage['token']
+      })
+    }
+    return this.httpClient.get(this.url + '/classroomDetails',options)
+  }
 }

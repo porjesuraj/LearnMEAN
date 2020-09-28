@@ -6,10 +6,11 @@ import { FacultyRoutingModule } from './faculty-routing.module';
 import { AllocatedStudentComponent } from './allocated-student/allocated-student.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ClassroomDetailsComponent } from './classroom-details/classroom-details.component';
 
 
 @NgModule({
-  declarations: [ AllocatedStudentComponent],
+  declarations: [ AllocatedStudentComponent, ClassroomDetailsComponent],
   imports: [
     CommonModule,
     FacultyRoutingModule,
