@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         sessionStorage['token'] = data['token']
         sessionStorage['firstName'] = data['firstName']
         sessionStorage['lastName'] = data['lastName']
-        this.router.navigate(['/home'])
+        this.router.navigate(['/faculty-home'])
       } 
       else
       {

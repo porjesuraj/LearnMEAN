@@ -15,8 +15,11 @@ const router = express.Router()
 router.get('/studentCount',(request,response) => {
 
 
-    const statement = `select c.FacultyId, COUNT(s.Id) as 'student count' from Classroom c INNER JOIN Student s
+    const statement = `select c.FacultyId,CONCAT(f.FirstName," ",f.LastName) as 'Faculty name', COUNT(s.Id) as 'student count' 
+    from Classroom c INNER JOIN Student s
     ON c.Id = s.ClassroomId 
+    INNER JOIN Faculty f 
+    ON c.FacultyId = f.Id
     where c.FacultyId = '${request.userId}'`
     console.log(statement)
     db.query(statement,(error,data) => {
