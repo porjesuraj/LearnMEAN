@@ -69,9 +69,10 @@ router.post('/signin', (request, response) => {
       if (error) {
         response.send({status: 'error', error: error})
       } else {
-        if (users.length == 0) {
+        if (users.length <= 0) {
           response.send({status: 'error', error: 'user does not exist'})
-        } else {
+        } 
+        else {
           const user = users[0]
           const token = jwt.sign({id: user['Id']}, config.secret)
           response.send(utils.createResult(error, {
