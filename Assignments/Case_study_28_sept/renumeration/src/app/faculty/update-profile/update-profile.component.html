@@ -1,0 +1,80 @@
+<div class="card col-md-8 box" >
+    <div class="card-header">
+       <h4>Update Profile</h4> 
+    </div>
+    <div class="body">
+
+        <div class="form">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for=""> FirstName</label>
+                    <input [(ngModel)]="FirstName" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for=""> LastName</label>
+                    <input [(ngModel)]="LastName" type="text" class="form-control">
+                </div>
+            </div>
+         
+            
+           
+
+            <div class="row"> 
+                <div class="form-group col-md-6">
+                    <label for=""> Email</label>
+                    <input [(ngModel)]="Email" type="email" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for=""> Password</label>
+                    <input [(ngModel)]="Password" type="password" class="form-control">
+                </div>
+            </div>
+           
+
+            <div class="form-group">
+                <label for=""> Address</label>
+             <textarea  [(ngModel)]="Address" cols="30" rows="5" class="form-control"></textarea>
+            </div>
+           <div class="row">
+            <div class="form-group col-md-4" >
+                <label for=""> Contact </label>
+                <input [(ngModel)]="Contact" type="number" class="form-control">
+            </div>
+
+           </div>
+
+            <div class="row">
+                <div  class="form-group col-md-6">
+                    <label for=""> Experience</label>
+                    <input [(ngModel)]="Experience" type="number" class="form-control">
+                </div>
+                <div  class="form-group col-md-6">
+                    <label for=""> Age</label>
+                    <input [(ngModel)]="Age" type="number" class="form-control">
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <button (click)="updateProfile()" class="btn btn-success">Update </button>
+                <button class="btn btn-warning" style="margin-left: 30px;"> <a routerLink="/faculty-home/" > Cancel</a> </button>
+             
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+</div>

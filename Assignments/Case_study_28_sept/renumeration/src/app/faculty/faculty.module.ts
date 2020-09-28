@@ -7,10 +7,11 @@ import { AllocatedStudentComponent } from './allocated-student/allocated-student
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ClassroomDetailsComponent } from './classroom-details/classroom-details.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 @NgModule({
-  declarations: [ AllocatedStudentComponent, ClassroomDetailsComponent],
+  declarations: [ AllocatedStudentComponent, ClassroomDetailsComponent, UpdateProfileComponent],
   imports: [
     CommonModule,
     FacultyRoutingModule,
