@@ -1,10 +1,11 @@
 import { Injectable, enableProdMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements CanActivate {
 
   url1 = 'http://localhost:3000/admin'
 
@@ -12,7 +13,21 @@ export class AuthService {
   
   url3 = 'http://localhost:3000/student'
 
-  constructor(private httpClient :HttpClient) { }
+
+  constructor(private httpClient :HttpClient,
+              private router : Router) { }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean  {
+   if(sessionStorage['token'])
+   {
+     return true
+   }
+   else
+   {
+     this.router.navigate(['/auth/login'])
+         return false
+   }
+  }
 
   adminLogin(email:string,password:string)
   {
