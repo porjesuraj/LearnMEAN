@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-body">
+        All Faculty
+    </div>
+    <div class="card-body">
+    <table class="table table-bordered table-dark col-md-12">
+        <thead>
+            <tr>
+         <th>Serial No</th>
+         <th>Faculty Id</th>
+         <th>Faculty Name</th>
+         <th>Address</th>
+         <th>Contact No</th>
+         <th>Email</th>
+         <th>Password</th>
+         <th>Experience</th>
+         <th>Age</th>
+         <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+<tr *ngFor="let faculty of faculties;let index = index">
+    <td>{{index + 1}}</td>
+    <td>{{faculty['Id']}}</td>
+    <td>{{faculty['FirstName'] + faculty['LastName']}}</td>
+    <td>{{faculty['Address']}}</td>
+    <td>{{faculty['Contact']}}</td>
+    <td>{{faculty['Email']}}</td>
+    <td>{{faculty['Password']}}</td>
+    <td>{{faculty['Experience']}}</td>
+    <td>{{faculty['Age']}}</td>
+    <td>
+        <button (click)="onDelete(faculty)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+        <button class="btn btn-success" style="margin-left: 10px;"> Calculate Payment</button>
+    </td>
+</tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+

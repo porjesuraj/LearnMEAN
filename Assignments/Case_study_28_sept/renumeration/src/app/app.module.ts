@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {FormsModule} from '@angular/forms'
 import{HttpClientModule} from '@angular/common/http';
-import { FacultyHomeComponent } from './faculty-home/faculty-home.component'
+import { FacultyHomeComponent } from './faculty-home/faculty-home.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FacultyHomeComponent
+    FacultyHomeComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,

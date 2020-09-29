@@ -17,6 +17,7 @@ export class UpdateProfileComponent implements OnInit {
   Password = ''
   Experience = 1
   Age = 1
+  faculty = null
   constructor(private facultyService : FacultyService,
               private router : Router) { }
 

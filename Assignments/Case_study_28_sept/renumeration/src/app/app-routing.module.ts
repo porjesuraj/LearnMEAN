@@ -1,3 +1,4 @@
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AuthService } from './auth/auth.service';
 import { FacultyHomeComponent } from './faculty-home/faculty-home.component';
 import { HomeComponent } from './home/home.component';
@@ -13,7 +14,16 @@ const routes: Routes = [
    canActivate: [AuthService],
    children : [
     {path : 'faculty', loadChildren : () => import('./faculty/faculty.module').then(m => m.FacultyModule)}
-   ]}
+   ]},
+
+   {
+     path: 'admin-home',
+     component : AdminHomeComponent,
+     canActivate : [AuthService],
+     children : [
+       {path : 'admin', loadChildren : () => import('./admin/admin.module').then(m => m.AdminModule)}
+     ]
+   }
 ];
 
 @NgModule({
