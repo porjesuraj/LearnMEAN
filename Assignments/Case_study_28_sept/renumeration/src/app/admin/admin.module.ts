@@ -7,10 +7,11 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AllFacultyComponent } from './all-faculty/all-faculty.component';
 import { AllStudentComponent } from './all-student/all-student.component';
+import { ClassListComponent } from './class-list/class-list.component';
 
 
 @NgModule({
-  declarations: [AllFacultyComponent, AllStudentComponent],
+  declarations: [AllFacultyComponent, AllStudentComponent, ClassListComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

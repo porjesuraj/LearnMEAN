@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="card-body">
+        All classroom
+    </div>
+    <div class="card-body">
+    <table class="table table-bordered table-dark col-md-12">
+        <thead>
+            <tr>
+         <th>Serial No</th>
+         <th>classroom Id</th>
+         <th>classroom Name</th>
+         <th>DateTime</th>
+         <th>Size</th>
+         <th>Faculty Id</th>
+         <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+<tr *ngFor="let classroom of classrooms;let index = index">
+    <td>{{index + 1}}</td>
+    <td>{{classroom['Id']}}</td>
+    <td>{{classroom['Name']}}</td>
+    <td>{{classroom['DateTime']}}</td>
+    <td>{{classroom['Size']}}</td>
+    <td>{{classroom['FacultyId']}}</td>
+    <td>
+        <button (click)="onDelete(classroom)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+    </td>
+</tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+

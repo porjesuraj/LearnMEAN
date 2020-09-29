@@ -51,4 +51,26 @@ export class AdminService {
 
     return this.httpClient.delete(this.url + '/student/' + Id,options)
   }
+
+  getAllClassroom()
+  {
+    const options = {
+      headers : new HttpHeaders({
+        token : sessionStorage['token']
+      })
+    }
+
+    return this.httpClient.get(this.url + '/AllClassroom',options)
+  }
+
+  onDeleteClassroom(Id)
+  {
+    const options = {
+      headers : new HttpHeaders({
+        token : sessionStorage['token']
+      })
+    }
+
+    return this.httpClient.delete(this.url + '/classroom/' + Id,options)
+  }
 }
