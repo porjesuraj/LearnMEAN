@@ -46,6 +46,16 @@ router.get('/AllFaculty',(request,response) => {
   })
 })
 
+router.get('/AllStudent',(request,response) => {
+
+
+  const statement = `select Id,FirstName,LastName,Address,Contact,Email,Password,ClassroomId from Student`
+  console.log(statement)
+  db.query(statement,(error,data) => {
+      response.send(utils.createResult(error,data))
+  })
+})
+
 //______________________________________________________________
 
 
@@ -129,6 +139,13 @@ router.delete('/faculty/:Id',(request,response) => {
   })
 })
 
+router.delete('/student/:Id',(request,response) => {
+  const{Id} = request.params
+  const statement = `delete from Student where Id = ${Id}`
+  db.query(statement,(error,data) => {
+    response.send(utils.createResult(error,data))
+})
+})
 
 //______________________________________________________________
 

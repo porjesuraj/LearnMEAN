@@ -1,4 +1,4 @@
-<!-- <div class="card">
+<div class="card">
     <div class="card-body">
         All student
     </div>
@@ -13,8 +13,7 @@
          <th>Contact No</th>
          <th>Email</th>
          <th>Password</th>
-         <th>Experience</th>
-         <th>Age</th>
+         <th>ClassroomId</th>
          <th>Action</th>
         </tr>
         </thead>
@@ -22,16 +21,14 @@
 <tr *ngFor="let student of students;let index = index">
     <td>{{index + 1}}</td>
     <td>{{student['Id']}}</td>
-    <td>{{student['FirstName']}}</td>
+    <td>{{student['FirstName'] + student['LastName']}}</td>
     <td>{{student['Address']}}</td>
     <td>{{student['Contact']}}</td>
     <td>{{student['Email']}}</td>
     <td>{{student['Password']}}</td>
-    <td>{{student['Experience']}}</td>
-    <td>{{student['Age']}}</td>
+    <td>{{student['ClassroomId']}}</td>
     <td>
         <button (click)="onDelete(student)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-        <button class="btn btn-success" style="margin-left: 10px;"> Calculate Payment</button>
     </td>
 </tr>
         </tbody>
@@ -39,5 +36,3 @@
     </div>
 </div>
 
-
- -->

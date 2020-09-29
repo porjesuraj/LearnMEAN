@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AdminService {
  url = 'http://localhost:3000/admin'
+ 
   constructor(private httpClient : HttpClient) { }
 
   getAllFaculty()
@@ -28,5 +29,26 @@ export class AdminService {
     }
 
     return this.httpClient.delete(this.url + '/faculty/' + Id,options)
+  }
+
+  getAllStudent()
+  {
+    const options = {
+      headers : new HttpHeaders({
+        token : sessionStorage['token']
+      })
+    }
+
+    return this.httpClient.get(this.url + '/AllStudent',options)
+  }
+  onDeleteStudent(Id)
+  {
+    const options = {
+      headers : new HttpHeaders({
+        token : sessionStorage['token']
+      })
+    }
+
+    return this.httpClient.delete(this.url + '/student/' + Id,options)
   }
 }
