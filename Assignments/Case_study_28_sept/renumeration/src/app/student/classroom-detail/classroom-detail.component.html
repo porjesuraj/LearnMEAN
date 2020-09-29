@@ -1,0 +1,33 @@
+
+<div class="card">
+    <div class="card-body">
+        All student
+    </div>
+    <div class="card-body">
+    <table class="table table-bordered table-dark col-md-12">
+        <thead>
+            <tr>
+         <th>Serial No</th>
+         <th>student Id</th>
+         <th>student Name</th>
+         <th>ClassroomId</th>
+         <th>Classroom Name</th>
+         <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+<tr *ngFor="let student of students;let index = index">
+    <td>{{index + 1}}</td>
+    <td>{{student['Id']}}</td>
+    <td>{{student['Student Name']}}</td>
+    <td>{{student['ClassroomId']}}</td>
+    <td>{{student['Name']}}</td>
+    <td>
+    
+    </td>
+</tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+

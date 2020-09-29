@@ -1,3 +1,4 @@
+import { StudentHomeComponent } from './student-home/student-home.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AuthService } from './auth/auth.service';
 import { FacultyHomeComponent } from './faculty-home/faculty-home.component';
@@ -22,6 +23,14 @@ const routes: Routes = [
      canActivate : [AuthService],
      children : [
        {path : 'admin', loadChildren : () => import('./admin/admin.module').then(m => m.AdminModule)}
+     ]
+   },
+   {
+     path : 'student-home',
+     component : StudentHomeComponent,
+     canActivate : [AuthService],
+     children : [
+       {path : 'student', loadChildren : () => import('./student/student.module').then(m => m.StudentModule)}
      ]
    }
 ];

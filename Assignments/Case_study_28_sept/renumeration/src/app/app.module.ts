@@ -7,7 +7,9 @@ import { HomeComponent } from './home/home.component';
 import {FormsModule} from '@angular/forms'
 import{HttpClientModule} from '@angular/common/http';
 import { FacultyHomeComponent } from './faculty-home/faculty-home.component';
-import { AdminHomeComponent } from './admin-home/admin-home.component'
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { StudentHomeComponent } from './student-home/student-home.component';
+
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component'
     AppComponent,
     HomeComponent,
     FacultyHomeComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    StudentHomeComponent
   ],
   imports: [
     BrowserModule,
