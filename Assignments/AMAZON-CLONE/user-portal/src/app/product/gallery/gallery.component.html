@@ -1,0 +1,47 @@
+<div class="row" style="margin-top: 10px;margin-bottom: 30px;">
+
+   <div class="col-md-12">
+      <button  (click)="loadCart()" class="btn btn-success float-right"> Cart</button>
+   </div>
+</div>
+
+<div class="card box " *ngFor="let product of products">
+
+
+     <div class="card-header ">
+  
+        <img class="card-img-top" src="http://localhost:4000/product/image/{{product['image']}}" alt="">
+
+     
+
+     </div>
+
+     <div class="card-body ">
+         <a class="card-link" href="#">see {{product['title']}} details</a> 
+         <h5 class="card-title card-link"> {{product['title']}}</h5>
+         <div class="card-text category">{{product['category']['title']}}</div>
+         <div class="card-text brand">{{product['brand']['title']}}</div>
+      <p class="card-text">{{product['description']}} </p>
+      
+
+     </div>
+     <div class="card-footer ">
+      
+      <h4  class="card-text"> ₹.{{product['price']}} </h4>
+
+      <button (click)="addToCart(product)" class="btn btn-success"> Add to Cart</button>
+     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

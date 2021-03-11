@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-header">
+        Users List
+    </div>
+    <div class="card-body">
+        <div class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>user id </th>
+                <th>Name</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>Active status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+     <tbody>
+         <tr *ngFor="let user of users; let index = index">
+             <td>{{index + 1}}</td>
+             <td>{{user['id']}}</td>
+             <td>{{user['firstName'] + "" + user['lastName']}}</td>
+             <td>{{user['phone']}}</td>
+             <td>{{user['email']}}</td>
+             <td>
+                 <button
+                 (click)="toggleSuspend(user)"
+                 [class.btn-success]="user['active'] != 1"
+                 [class.btn-warning]="user['active'] == 1"
+                 class="btn"
+                 >{{user['active'] == 1 ? 'Suspend' : 'Active'}}</button>
+             </td>
+             <td>
+                 <button class="btn btn-primary"> Edit</button>
+                 <button (click)="deleteUser(user)" class="btn btn-danger" style="margin-left: 10px;"> Delete </button>
+             </td>
+     
+         </tr>
+     </tbody>
+
+        </div>
+
+    </div>
+</div>

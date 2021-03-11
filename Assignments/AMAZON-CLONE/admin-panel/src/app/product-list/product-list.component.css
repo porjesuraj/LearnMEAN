@@ -1,0 +1,13 @@
+.product-image
+{
+    height: 50px;
+}
+
+.product-image:hover
+{
+    transform: scale(2);
+}
+.add
+{
+    float: right;
+}
